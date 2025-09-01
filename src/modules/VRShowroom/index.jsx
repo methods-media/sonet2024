@@ -4,7 +4,7 @@ import VRControls from './VRControls';
 import { useTranslation } from 'next-i18next';
 import PanoramaViewer from '@src/components/ImageViewer360';
 import { useRouter } from 'next/router';
-import { CDN_BEIGE_FENDER, CDN_BEIGE_STATIC, CDN_BLACK, CDN_BLUE, CDN_GREEN, CDN_INTERSTELLAR, CDN_RED, CDN_SNOW, CDN_STEEL_GRAY, CDN_TAN_BEIGE, CDN_WHITE, CDN_WHITE_FENDER, FRAME_COUNT } from '@src/constants/imageSequence';
+import { CDN_BEIGE_FENDER, FRAME_COUNT } from '@src/constants/imageSequence';
 const VRShowroom = ({ showControl=false }) => {
   const containerRef = useRef(null);
   const [view, setView] = useState('exterior')
@@ -16,7 +16,7 @@ const VRShowroom = ({ showControl=false }) => {
   const startX = useRef(0);
   const autoRotateRef = useRef(null);
   const lastTimeRef = useRef(0);
-  const [currentColor, setCurrentColor] = useState('beige');
+  const [currentColor, setCurrentColor] = useState('redBlack');
   const [isOn, setIsOn] = useState(showControl ?showControl:false)
   const framePositionRef = useRef(0);
   const [colorTextKey, setColorTextKey] = useState(0);
@@ -28,29 +28,44 @@ const VRShowroom = ({ showControl=false }) => {
     setCurrentFrame(0)
   }
   const COLORS = [
-    { id: 'beige', name: t('colors.beige'), hex: '#939393', chip: "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/08342870-b29c-4b1c-8e32-796b0139d200/public" },
-    { id: 'tan', name: t('colors.beigeFender'), hex: '#000000', chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/d53c6dbf-f7c7-490f-c1d4-d60f3eb44900/public" },
-    { id: 'white', name: t('colors.clear_white'), hex: '#FFFFFF', chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/4952bc85-a2df-46ab-081d-d25f6177ce00/public"},
-    { id: 'whiteFender', name: t('colors.clear_white_fender'), hex: '#909598', chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/4a912299-4456-49f6-05a4-321c33d18e00/public" },
-    { id: 'green', name: t('colors.green'), hex: "#565656", chip: "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/00e9b9b6-6c5e-446f-6b7a-d9bc41e71a00/public" },
-    { id: 'blue', name: t('colors.wave_blue'), hex: '#344f7e', chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/a8f7b28b-ff09-42b2-b0ab-3eccbed81500/public" },
-    { id: 'red', name: t('colors.fiery_red'), hex: '#ae2736', chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/15311daf-6c93-409c-f457-e8c1867d7600/public" },
-    { id: 'gray', name: t('colors.gray'), hex: "#565656", chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/2ec05ee8-5a4d-4bcd-0aa7-1d0308c8e300/public" },
-    { id: 'snow', name: t('colors.snow_white_pearl'), hex: '#f6f6f6', chip:"https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ad847c7a-3269-443f-42f4-db56d986c600/public" },
-    { id: 'steel', name: t('colors.steel_gray'), hex: "#565656", chip: "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/34c49397-583e-4209-7ef7-06d6e17d4b00/public" },
-    { id: 'black', name: t('colors.black'), hex: "#565656", chip: "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/b969f132-bf2b-4e32-1373-f54363d4ed00/public" },
-  ];
-
+    { id: 'redBlack', name: t('redBlack'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/6b7c3968-3447-445e-e77e-28625d4b1800/semi',  },
+    { id: 'red', name: t('red'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/e761a673-7623-48e1-6f40-3742e9ff1c00/semi',},
+    { id: 'whiteBlack', name: t('whiteBlack'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/a89978a6-ecd9-4dbe-dd8e-c7a5905c4e00/semi', },
+    { id: 'white', name: t('white'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/2a918d82-a0d6-4175-799d-3dfce4273c00/semi', },
+    { id: 'blue', name: t('blue'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/5a558746-8b2f-4a00-31da-3fa289d6b500/semi', },
+    { id: 'silver', name: t('silver'), hex: "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/0c84d20c-c5f6-4157-f39d-28735d263300/semi", },
+    { id: 'olive', name: t('olive'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/6d05405c-c9b1-4c89-5fd0-ae7135ca3200/semi',},
+    { id: 'clearWhite', name: t('clear'), hex: "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/2a918d82-a0d6-4175-799d-3dfce4273c00/semi", },
+    { id: 'gravityGray', name: t('gray'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/aa6cbd59-b0d1-4dac-fb9c-a18eea1d6000/semi', },
+    { id: 'black', name: t('black'), hex: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/3f58e7a1-25ba-4c7a-f91c-c5efda182f00/semi', },
+  
+  
+     ];
+  const CDN_IMAGES = [
+    "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/a03568f0-8636-4532-9f97-6405f674af00/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/d09a29bc-7441-4b6a-39c7-cc2d236d3400/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/2c602b08-6686-4090-d547-b7a1e1c43100/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/60aefd73-aa96-492e-729c-1636950e5f00/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/67c5adc0-91ed-4d15-e788-e7fc31bb7100/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/6b9043e3-62a9-43c9-656a-4829c762bf00/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/e688f8fb-dda0-43b0-e7cf-5e418e7df600/public",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/9faac0ed-432e-418d-a063-3385f3264e00/semi",
+  "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/aa64315a-f3b5-42c9-0134-bb44db391d00/semi",
+    "https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/2f015972-b918-41bb-04fc-7f9139a87700/semi",
+]
   const preloadColorImages = async colorId => {
-    const urls = colorId === 'snow' ?
-      CDN_SNOW : colorId === 'white' ?
-        CDN_WHITE : colorId === 'whiteFender' ?
-          CDN_WHITE_FENDER : colorId === 'tan' ?
-            CDN_TAN_BEIGE : colorId === 'beige' ?
-              CDN_BEIGE_STATIC : colorId === 'blue' ?
-                CDN_BLUE : colorId === 'red' ?
-                  CDN_RED : colorId === 'steel' ?
-                    CDN_STEEL_GRAY : colorId === 'gray' ? CDN_INTERSTELLAR : colorId =='green'?CDN_GREEN: CDN_BLACK;
+    const urls = colorId === 'redBlack' ?
+      [CDN_IMAGES[0]] : colorId === 'red' ?
+        [CDN_IMAGES[1]] : colorId === 'whiteBlack' ?
+          [CDN_IMAGES[2]] : colorId === 'white' ?
+            [CDN_IMAGES[3]] : colorId === 'blue' ?
+              [CDN_IMAGES[4]] : colorId === 'silver' ?
+                [CDN_IMAGES[5]] : colorId === 'olive' ?
+                  [CDN_IMAGES[6]] : colorId === 'clearWhite' ?
+                    [CDN_IMAGES[7]] : colorId === 'gravityGray' ?
+                      [CDN_IMAGES[8]] : colorId == 'black' ?
+                        [CDN_IMAGES[9]] : '';
+    
 
     const imageElements = urls.map(url => {
       const img = new Image();
@@ -218,16 +233,14 @@ const VRShowroom = ({ showControl=false }) => {
         transform: 'translateZ(0)',
       }}
     >
-      <p id='vrShowroomText' className={`text-white text-lg  md:text-[28px] z-[50] drop-shadow-2xl [text-shadow:_2px_2px_2px_rgba(0,0,0,0.4)] !absolute start-0 text-center lg:text-start lg:start-10 !top-22  w-full leading-1   ${locale == 'ar' ? 'font-["GSSBold"]' : 'font-["InterBold"]'}`}>
-        {i18n?.language == 'ar' ? showControl ? `استكشف تفاصيل تاسمان من الداخل والخارج` : `كيا تاسمان تلبي جميع الأذواق` : showControl ?`Discover Kia Tasman's Exterior & Interior in 360°`: 'The Tasman Meets All Tastes'}
-      </p>
+     
       <div
-          className='mt-0 lg:mt-12.5 absolute bottom-3 lg:bottom-12.5 w-full text-white text-sm z-50 flex flex-col justify-end ps-0 lg:ps-[70px] gap-2 lg:gap-4 items-center'
-        
-      >
-      
+        className='mt-0 lg:mt-12.5 absolute bottom-3 lg:bottom-12.5 w-full text-white text-sm z-50 flex flex-col justify-end ps-0 lg:ps-[70px] gap-2 lg:gap-4 items-center'
 
-       
+      >
+
+
+
         {view == 'exterior' ?
           <div className='flex items-center flex-row-reverse gap-2'>
 
@@ -244,25 +257,16 @@ const VRShowroom = ({ showControl=false }) => {
                     key={color.id}
                     className='flex items-center gap-2 '
                   >
-                    <button
-                      key={color.name}
-                      className=' rounded-sm w-7 btn-color-showRoom h-7 md:w-[50px] md:h-[50px] hover:scale-110 cursor-pointer '
+                    <img
                       onClick={() => handleColorChange(color.id)}
-                      style={{
-                        background: `url(${color.chip}) no-repeat center center`,
 
-                        backgroundSize: 'cover',
-                      }}
-
-
-                    />
-
+                      src={color.hex} width={50} height={50} className={`cursor-pointer  ${color.id==currentColor?'border border-white rounded-full':''}`} />
 
                   </div>
                 ))}
               </div>
             </div>}
-         
+
           </div> : <p className={`text-white text-lg md:text-xl btn-showRoom mt-2 ${locale == 'ar' ? 'font-["GSSBold"]' : 'font-["InterBold"]'}`}>        {t('colors.onyx_black')}</p>
         }
         {showControl ? <VRControls
@@ -270,33 +274,23 @@ const VRShowroom = ({ showControl=false }) => {
           onViewChange={setView}
           view={view}
 
-        /> :null}
+        /> : null}
       </div>
-      {/* {(currentColor == 'beige' && view == 'exterior' && showControl) ?
-        <div className='absolute left-10 group bottom-[112px] cursor-pointer z-[200]' onClick={() => {
-        setIsOn(true)
-        }}>
-          <button
-            className={` px-6 py-0 cursor-pointer h-[45px] gap-3   text-[#05141F] bg-white hover:bg-[#05141F] hover:text-white flex items-center justify-center rounded-lg shadow-[5px] font-semibold    transition-all duration-1000 ease-out`}
-            style={{ zIndex: 1000 }}
-          >
-            <img src='/assets/360Black.png' className='group-hover:hidden' width={25} height={25} />
-            <img src='/assets/360White.png' className='hidden group-hover:block' width={25} height={25} />
-            <p>{i18n?.language == 'ar' ? 'عرض 360 درجة':'360 view'}</p>
-          </button>
-      </div>:null} */}
+    
+    
      
       <div
         ref={containerRef}
         style={{
           width: '100%',
-          height: '100%',
+          height: '100% !important',
           position: 'relative',
           overflow: 'hidden',
           cursor:isOn? isDragging.current ? 'grabbing' : 'grab':'',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          minHeight:'100vh !important'
         }}
         onMouseDown={isOn?handleMouseDown:null}
         onMouseMove={isOn?handleMouseMove:null}
@@ -307,28 +301,22 @@ const VRShowroom = ({ showControl=false }) => {
         onTouchEnd={isOn?handleMouseUp:null}
       >
         
-        {view == 'exterior' ? <img
-          src={isOn ? CDN_BEIGE_FENDER?.[currentFrame] :loadedImages[currentColor][currentFrame]}
+        <img
+          src={loadedImages[currentColor][currentFrame]}
           alt={`360° View Frame ${currentFrame + 1}`}
           onError={handleImageError}
           style={{
-            maxWidth: '100%',
-            maxHeight: '100%',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
             objectFit: 'cover',
             minWidth: '100vw',
-
             userSelect: 'none',
             WebkitUserSelect: 'none',
             pointerEvents: 'none',
+            minHeight:'100vh'
           }}
           draggable={false}
-        /> :
-          <PanoramaViewer
-            imageUrl="/assets/ktk-int360-v2.png"
-
-          />
-         
-        } 
+        /> 
       </div>
 
     

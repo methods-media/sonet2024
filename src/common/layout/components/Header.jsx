@@ -23,39 +23,54 @@ export default function Header() {
     return null;
   }
 
+  const sections = [
+    {
+      title: "#welcome",
+      text: "welcome",
+    },
+    {
+      title: "#exterior",
+      text: "ext",
+    },
+    {
+      title: "#interior",
+      text: "interior",
+    },
+    {
+      title: "#safty",
+      text: "safety",
+    },
+    {
+      title: "#performance",
+      text: "performance",
+    },
+    {
+      title: "#specifications",
+      text: "specifications",
+    }
+  ]
+
   return (
     <>
       {router.pathname.includes('configurator') ? null : (
-        <header className="top-0 fixed z-[20000] left-0 w-full shadow-md  p-4 flex items-center justify-between border-y h-[58px] border--solid border-[#FFFFFF42] !bg-black/20" dir='ltr'>
+        <header className="top-0 fixed z-[20000] left-0 w-full shadow-md  p-4 flex items-center justify-between  h-[76px]  bg-[#05141f] " dir='ltr'>
           <div className="w-full  items-center hidden md:flex justify-between px-5">
             <img
               src="/assets/images/logoWhite.png"
-              width={80}
-              height={20}
+              width={100}
               alt="Logo"
-              className="h-[20px]"
+              className="h-[30px] w-[100px]"
             />
             <div className='flex gap-2 items-center ' dir={locale == 'ar' ? 'rtl' : 'ltr'}>
-              <p className={`cursor-pointer ${router?.asPath =='/#highlights' ?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white ${locale == 'en' ? 'font-["InterRegular"]' : 'font-["GSSMedium"]'} text-lg  font-semibold `} onClick={() => router.push('/#highlights')}>{t('Highlights')}</p>
-              <p className='text-white'>|</p>
-              <p className={`cursor-pointer ${router?.asPath =='/#exterior'?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white ${locale == 'en' ? 'font-["InterRegular"]' : 'font-["GSSMedium"]'} text-lg  font-semibold `} onClick={() => router.push('/#exterior')}>{locale == 'ar'?'التصميم الخارجي': 'Exterior'} </p>
-              <p className='text-white'>|</p>
-
-              <p className={`cursor-pointer ${router?.asPath =='/#interior'?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white ${locale == 'en' ? 'font-["InterRegular"]' : 'font-["GSSMedium"]'} text-lg  font-semibold `} onClick={() => router.push('/#interior')}>{locale == 'ar' ?'التصميم الداخلي': 'Interior'} </p>
-              <p className='text-white'>|</p>
-
-              <p className={`cursor-pointer ${router?.asPath =='/#performance'?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white ${locale == 'en' ? 'font-["InterRegular"]' : 'font-["GSSMedium"]'} text-lg  font-semibold `} onClick={() => router.push('/#performance')}>{locale == 'ar' ? 'الأداء':'Performance'}</p>
-              <p className='text-white'>|</p>
-              <p className={`cursor-pointer ${router?.asPath =='/#safety'?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white ${locale == 'en' ? 'font-["InterRegular"]' : 'font-["GSSMedium"]'} text-lg  font-semibold `} onClick={() => router.push('/#safety')}>{t('Safety')}</p>
-              <p className='text-white'>|</p>
-
-              <p className={`cursor-pointer ${router?.asPath =='/#kiaConnect'?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white  !font-["InterRegular"]  text-lg  font-semibold `} onClick={() => router.push('/#kiaConnect')}>{ 'Kia Connect'}</p>
-              <p className='text-white'>|</p>
-
-              <p className={`cursor-pointer ${router?.asPath =='/#specs'?"text-white":'text-[#FFFFFFAD]'} ps-4 text-center   hover:text-white ${locale == 'en' ? 'font-["InterRegular"]' : 'font-["GSSMedium"]'} text-lg  font-semibold `} onClick={() => router.push('/#specs')}>{t('specso')}</p>
+              {sections?.map((item, index) => (
+                <div key={index} className='flex gap-1 items-center'>
+                  <SVG />
+                  <p className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}>{t(item?.text)}</p>
+                </div>
+              ))}
 
             </div>
-            <a href={`/${locale == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`} className={`!text-[#FFFFFFAD] text-[17px] font-semibold ${locale == 'ar' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}> {locale=='en'?"العربية":"English"}</a>
+            <a href={`/${locale == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`} className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}> {locale == 'en' ? "العربية" : "English"}</a>
           </div>
         
           <button onClick={toggleMenu} className="p-2 !cursor-pointer md:hidden">
@@ -81,3 +96,11 @@ export default function Header() {
 }
 
 
+
+const SVG = () => {
+  return (
+    <svg aria-hidden="true" width="15px" height="15px" fill="#ea0029" viewBox="0 0 192 512" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path>
+    </svg>
+  )
+}
