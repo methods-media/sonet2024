@@ -151,7 +151,7 @@ export const SwiperSection = ({ id }) => {
                                                 {t(item.title)?.split('LCD')?.[0]}
                                                 <span className="font-[InterBold]">{'LCD'}</span>
                                                 {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[0]}
-                                                <span className="font-[InterBold]">{'10.25'}</span>
+                                                {i18n?.language == 'ar' ? <span className="font-[InterBold]">{'10.25'}</span>:null}
                                                 {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[1]}
 
 
@@ -203,7 +203,7 @@ export const SwiperSection = ({ id }) => {
                                                     {t(item.title)?.split('LCD')?.[0]}
                                                     <span className="font-[InterBold]">{'LCD'}</span>
                                                     {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[0]}
-                                                    <span className="font-[InterBold]">{'10.25'}</span>
+                                                    {i18n?.language == 'ar' ? <span className="font-[InterBold]">{'10.25'}</span> : null}
                                                     {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[1]}
 
 
