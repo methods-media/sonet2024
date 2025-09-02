@@ -9,7 +9,7 @@ export const Light = () => {
         <div className={`w-screen h-screen ${on ? 'bg-[url("https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/f0068d71-99a5-4dcb-fe18-28b048b95300/semi")]' :'bg-[url("https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/27e0552b-08ca-48c6-8555-ce8c2d875300/semi")]'} flex flex-col justify-end bg-cover bg-center bg-no-repeat py-[30px]`}>
 
 
-            <div className="w-full flex flex-col items-center justify-center">
+            <div className="w-full flex flex-col items-center justify-center" dir='ltr'>
                 <div className="flex items-center justify-center gap-4">
                     <p className={`text-lg ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'} ${!on?'opacity-100':'opacity-0'} text-white`}>{t('day')}</p>
                     <div className="h-[50px] max-w-[120px] flex items-center justify-center bg-[#05141f]/50">

@@ -180,7 +180,14 @@ const ThreeSixty = ({ showControl = false }) => {
 
       >
 
-        <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language=='en'?'font-[InterBold]':'font-[GSSMedium]'}`}>{ t('discover')}</p>
+        <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
+          {t('discover')?.split('360')?.[0]}
+          <span className='font-[InterBold]'>{'360°'}</span>
+          {t('discover')?.split('360')?.[1]}
+
+  
+          
+        </p>
 
         {view == 'exterior' ?
           isOn ? null :

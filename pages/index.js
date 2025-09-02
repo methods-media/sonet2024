@@ -38,7 +38,7 @@ export default function Home() {
       <Head>
         {router.locale == 'ar' ? <title> كيا سونيت 2024  - البروشور الرقمي</title> : <title>Kia Sonet 2024 – Digital Brochure</title>}
         <link rel="icon" href="/kia.ico"  />
-        <meta name="description" content={router?.locale == 'ar' ? content = "سونيت 2024 الجديدة سيارة تتناغم معك مع سونيت الجديدة، استشعر حرية الانطلاق سيارة لا يمكن مجاراتها، فهي مصنوعة من خامة غاية في المتانة والقوة،ومزودة بتكنولوجيا لا مثيل لها، مصممة لتمنحك تجربة قيادة فريدة من نوعها.استمتع بقيادتها وأطلق العنان لرغباتك. قد تختلف المواصفات حسب البلد التصميم الخارجي اكتشف المزيد أحمر مع سقف أسود أحمر أبيض مع" : "The new Sonet is here to set you free. Chiseled to perfection, raw in power, and loaded with tech."} />
+        <meta name="description" content={router?.locale == 'ar' ? "سونيت 2024 الجديدة سيارة تتناغم معك مع سونيت الجديدة، استشعر حرية الانطلاق سيارة لا يمكن مجاراتها، فهي مصنوعة من خامة غاية في المتانة والقوة،ومزودة بتكنولوجيا لا مثيل لها، مصممة لتمنحك تجربة قيادة فريدة من نوعها.استمتع بقيادتها وأطلق العنان لرغباتك. قد تختلف المواصفات حسب البلد التصميم الخارجي اكتشف المزيد أحمر مع سقف أسود أحمر أبيض مع" : "The new Sonet is here to set you free. Chiseled to perfection, raw in power, and loaded with tech."} />
       </Head>
 
       <Banner />

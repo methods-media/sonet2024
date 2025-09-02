@@ -54,7 +54,12 @@ const [on,setOn]=useState(false)
     return (
         
         <div className='relative w-screen h-screen'>
-            <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('discover2')}</p>
+            <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
+              
+                {t('discover2')?.split('360')?.[0]}
+                <span className='font-[InterBold]'>{'360°'}</span>
+                {t('discover2')?.split('360')?.[1]}
+            </p>
 
             {!on ? <div onClick={()=>setOn(true)} className=' cursor-pointer absolute left-0 top-0 min-h-screen min-w-screen bg-black/30 gap-6 flex flex-col items-center justify-center z-[100]'
             >

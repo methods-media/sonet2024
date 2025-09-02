@@ -161,7 +161,7 @@ const ParallaxThirdSection = () => {
                         className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
-                        {t('safety')}
+                        {t('safety2')}
                     </motion.p>
                     <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
@@ -171,7 +171,12 @@ const ParallaxThirdSection = () => {
                 <div className='relative w-screen h-screen'>
                     <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[24px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('ADSF')}</p>
                     <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[12%] '>
-                        <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('lka')}</p>
+                        <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
+                            {t('lka')?.split('LKA')?.[0]}
+                            <span className='font-[InterBold]'>LKA</span>
+
+                            {t('lka')?.split('LKA')?.[1]}
+                        </p>
                         <p className={`z-[100] text-white w-full text-center text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>{t('lka1')}</p>
 
                     </div>

@@ -128,15 +128,124 @@ export const SwiperSection = ({ id }) => {
                             style={{
                                 writingMode: 'vertical-rl'
                             }}
-                            className={`text-[24px] text-white ${i18n?.t == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} `}>{t(item.title)}</h3>
+                            className={`text-[24px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} `}>
+                            
+                            {
+                                t(item.title)?.includes('LED') ?
+
+                                    <>
+                                        {t(item.title)?.split('LED')?.[0]}
+                                        <span className="font-[InterBold]">{'LED'}</span>
+                                        {t(item.title)?.split('LED')?.[1]}
+                                    </>
+                                    : t(item.title)?.includes('16') ?
+
+                                        <>
+                                            {t(item.title)?.split('16')?.[0]}
+                                            <span className="font-[InterBold]">{'16'}</span>
+                                            {t(item.title)?.split('16')?.[1]}
+                                        </>
+                                        : t(item.title)?.includes('LCD') ?
+
+                                            <>
+                                                {t(item.title)?.split('LCD')?.[0]}
+                                                <span className="font-[InterBold]">{'LCD'}</span>
+                                                {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[0]}
+                                                <span className="font-[InterBold]">{'10.25'}</span>
+                                                {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[1]}
+
+
+                                            </>
+                                            :
+                                            t(item.title)?.includes('10.25') ?
+
+                                                <>
+                                                    {t(item.title)?.split('10.25')?.[0]}
+                                                    <span className="font-[InterBold]">{'10.25'}</span>
+                                                    {t(item.title)?.split('10.25')?.[1]}
+                                                </>
+                                                : t(item.title)?.includes('6') ?
+
+                                                    <>
+                                                        {t(item.title)?.split('6')?.[0]}
+                                                        <span className="font-[InterBold]">{'6'}</span>
+                                                        {t(item.title)?.split('6')?.[1]}
+                                                    </>
+                                                    : t(item.title)}
+
+                            </h3>
 
                     </div>
                     }
                     {/* Content overlay when expanded */}
                     {expanded === item.id && !isTransitioning && (
                         <div className="w-full bg-gradient-to-b from-transparent from-75% to-black to-100% flex flex-col h-full items-center justify-end gap-2 pb-5 animate-fadeIn">
-                            <h3 className={`text-[24px] text-white ${i18n?.t == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} animate-slideUp`}>{t(item.title)}</h3>
-                            <p className={`text-base text-white max-w-[70%] text-center ${i18n?.t == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'} animate-slideUp`}>{t(item.description)}</p>
+                            <h3 className={`text-[24px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} animate-slideUp`}>
+                               
+                                {
+                                    t(item.title)?.includes('LED') ?
+
+                                        <>
+                                            {t(item.title)?.split('LED')?.[0]}
+                                            <span className="font-[InterBold]">{'LED'}</span>
+                                            {t(item.title)?.split('LED')?.[1]}
+                                        </>
+                                        : t(item.title)?.includes('16') ?
+
+                                            <>
+                                                {t(item.title)?.split('16')?.[0]}
+                                                <span className="font-[InterBold]">{'16'}</span>
+                                                {t(item.title)?.split('16')?.[1]}
+                                            </>
+                                            : t(item.title)?.includes('LCD') ?
+
+                                                <>
+                                                    {t(item.title)?.split('LCD')?.[0]}
+                                                    <span className="font-[InterBold]">{'LCD'}</span>
+                                                    {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[0]}
+                                                    <span className="font-[InterBold]">{'10.25'}</span>
+                                                    {t(item.title)?.split('LCD')?.[1]?.split('10.25')?.[1]}
+
+
+                                                </>
+                                                :
+                                                t(item.title)?.includes('10.25') ?
+
+                                                    <>
+                                                        {t(item.title)?.split('10.25')?.[0]}
+                                                        <span className="font-[InterBold]">{'10.25'}</span>
+                                                        {t(item.title)?.split('10.25')?.[1]}
+                                                    </>
+                                                    : t(item.title)?.includes('6') ?
+
+                                                        <>
+                                                            {t(item.title)?.split('6')?.[0]}
+                                                            <span className="font-[InterBold]">{'6'}</span>
+                                                            {t(item.title)?.split('6')?.[1]}
+                                                        </>
+                                                        : t(item.title)}
+                            
+                            </h3>
+                            <p className={`text-base text-white max-w-[70%] text-center ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'} animate-slideUp`}>
+                                
+                                
+                                {t(item.description)?.includes('16') ?
+
+                                <>
+                                    {t(item.description)?.split('16')?.[0]}
+                                    <span className="font-[InterBold]">{'16'}</span>
+                                    {t(item.description)?.split('16')?.[1]}
+                                </>
+                                    : t(item.description)?.includes('2024') ?
+
+                                        <>
+                                            {t(item.description)?.split('2024')?.[0]}
+                                            <span className="font-[InterBold]">{'2024'}</span>
+                                            {t(item.description)?.split('2024')?.[1]}
+                                        </>
+                                        : t(item.description)}
+                                
+                                </p>
                         </div>
                     )}
                 </div>

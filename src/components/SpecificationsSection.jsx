@@ -14,66 +14,66 @@ const SpecificationsSection = () => {
 
     const accordionData = [
         {
-            title: t('convenience'),
+            title: locale == 'ar' ? 'الراحة' :'Convenience',
             content: [
-                'Full Auto Air Conditioner',
-                'Tilt Adjustable Steering Column',
-                'Cruise Control',
-                'Audio Control on Steering Wheel',
-                'Bluetooth w/ Voice Recognition',
-                'Power adjustable and folding outside rearview mirrors',
-                'Front & Rear Power Windows',
-                'Keyless Entry System',
-                'Smart Key with Button Start',
-                'Drive Mode Select (Sports - Eco - Normal)'
+                "faa1",
+               "faa2",
+               "faa3",
+               "faa4",
+               "faa5",
+               "faa6",
+               "faa7",
+               "faa8",
+                "faa9",
+                "faa10",
             ]
         },
         {
             title: t('ext'),
             content: [
-                'Star Map LED Headlamps with DRL (daytime running lamps)',
-                'Star Map LED Connected Tail lamps',
-                'Two-Tone Body Color',
-                'Power Sunroof',
-                'Crystal cut alloy wheels',
-                'Side Repeater Lamps on Outside Mirrors',
-                'Roof Rack',
-                'Rear Fog Lamp',
-                'Front Fog Lamp',
-                'Daytime Running Light',
-                'Folding Mirrors'
+                "Baa",
+               "Baa1",
+               "Baa2",
+               "Baa3",
+               "Baa4",
+               "Baa5",
+               "Baa6",
+               "Baa7",
+               "Baa8",
+               "Baa9",
+                "Baa10",
             ]
         },
         {
             title: t('interior'),
             content: [
-                'Front Power Outlet',
-                'Height Adjustable Driver Seat',
-                'Smart Audio with Android Auto & Apple CarPlay',
-                'Rear View Camera on Audio Screen',
-                'Cigar Lighter w/ Ashtray',
-                'Sporty Alloy pedals',
-                'Leather Wrapped Steering Wheel & TGS Knob',
-                'Artificial Leather Seats',
-                'Wireless Charger',
-                'Super Vision Cluster with TFT LCD 10.25"'
+                "Gaa",
+                "Gaa1",
+                "Gaa2",
+                "Gaa3",
+                "Gaa4",
+                "Gaa5",
+                "Gaa6",
+                "Gaa7",
+                "Gaa8",
+                "Gaa9",
             ]
         },
         {
             title: t('safety'),
             content: [
-                '6 Airbags option available (Driver + Passenger + Side & Curtain airbags)',
-                'Rear Parking Sensors',
-                'Tire Pressure Monitoring System (TPMS)',
-                'Anti-Lock Brake System (ABS)',
-                'Electronic Stability Control (ESC)',
-                'Hill Start Assist Control (HAC)',
-                'Lane Keeping Assist (LKA)',
-                'Forward Collision Avoidance (FCA)',
-                'Lane Following Assist (LFA)',
-                'Forward Parking sensors',
-                'Rear view camera',
-                'Auto Light Control'
+                "zaa",
+                "zaa1",
+                "zaa2",
+                "zaa3",
+                "zaa4",
+                "zaa5",
+                "zaa6",
+                "zaa7",
+                "zaa8",
+                "zaa9",
+                "zaa10",
+                "zaa11",
             ]
         }
     ];
@@ -102,8 +102,21 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-xl text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>{t('liter')}</p>
-                        <p className="text-sm [##6D6E71]">{t('rpm')}</p>
+                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                            {t('liter')?.split('1.5')?.[0]}
+                            <span className='font-[InterBold]'>1.5</span>
+                            {t('liter')?.split('1.5')?.[1]}
+                        
+                        
+                        </p>
+                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>
+                            {t('rpm')?.split('115')?.[0]}
+                            <span className='font-[InterRegular]'>115</span>
+                            {t('rpm')?.split('115')?.[1]?.split('6300')?.[0]}
+                            <span className='font-[InterRegular]'>6300</span>
+                            {t('rpm')?.split('115')?.[1]?.split('6300')?.[1]}
+
+                        </p>
                     </div>
 
                     <div className="text-center">
@@ -116,8 +129,9 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-xl text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>{t('DM')}</p>
-                        <p className="text-sm [##6D6E71]">{t('DM1')}</p>
+                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+{t('DM')}</p>
+                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('DM1')}</p>
                     </div>
 
                     <div className="text-center">
@@ -133,8 +147,13 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-xl text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>{t('airBags')}</p>
-                        <p className="text-sm [##6D6E71]">{t('airBag1')}</p>
+                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                            {t('airBags')?.split('6')?.[0]}
+                            <span className='font-[InterBold]'>6</span>
+                            {t('airBags')?.split('6')?.[1]}
+                        
+                        </p>
+                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('airBag1')}</p>
                     </div>
 
                     <div className="text-center">
@@ -148,8 +167,9 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className="text-xl font-bold [#05141F]">{t('audio')}</p>
-                        <p className="text-sm [#6D6E71]">{t('smart2')}</p>
+                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+{t('audio')}</p>
+                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('smart2')}</p>
                     </div>
 
                     <div className="text-center">
@@ -161,7 +181,8 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className="text-xl font-bold [#05141F]">{t('chg')}</p>
+                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+{t('chg')}</p>
                     </div>
 
                     <div className="text-center">
@@ -171,7 +192,11 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className="text-xl font-bold [#05141F]">{t('warranty')}</p>
+                        <p className={`text-xl font-bold text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>
+                            {t('warranty')?.split('5')?.[0]}
+                            <span className='font-[InterBold]'>5</span>
+                            {t('warranty')?.split('5')?.[1]}
+                        </p>
                     </div>
                 </div>
 
@@ -205,11 +230,86 @@ const SpecificationsSection = () => {
                                     <div className="p-6 bg-gray-50">
                                         <ul className="space-y-3">
                                             {item.content.map((feature, featureIndex) => (
-                                                <li key={featureIndex} className="flex items-start">
+                                                <li key={featureIndex} className="flex gap-1 items-start">
                                                     <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                                     <span className={`text-gray-700 ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'
                                                         }`}>
-                                                        {feature}
+                                                        {t(feature)?.includes('LED') ?
+                                                            <>
+                                                                {t(feature)?.split('LED')?.[0]}
+                                                                <span className='font-[InterRegular]'>LED</span>
+                                                                {t(feature)?.split('LED')?.[1]?.includes('Star Map') ?
+                                                                    <>
+                                                                        {t(feature)?.split('LED')?.[1]?.split('Star Map')?.[0]}
+                                                                        <span className='font-[InterRegular]'>Star Map</span>
+                                                                        {t(feature)?.split('LED')?.[1]?.split('Star Map')?.[1]}
+                                                                    </>
+                                                                : t(feature)?.split('LED')?.[1]}
+                                                               
+                                                              
+                                                            </>
+                                                            : t(feature)?.includes("TFT") ? <>
+                                                                {t(feature)?.split('TFT')?.[0]}
+                                                                <span className='font-[InterRegular]'>TFT</span>
+                                                                {t(feature)?.split('TFT')?.[1]?.includes('10.25') ?
+                                                                    <>
+                                                                        {t(feature)?.split('TFT')?.[1]?.split('10.25')}
+                                                                        <span className='font-[InterRegular]'>10.25</span>
+                                                                        {t(feature)?.split('TFT')?.[1]?.split('10.25')}
+                                                                        </>
+                                                                : t(feature)?.split('TFT')?.[1]}
+                                                            </> : t(feature)?.includes('6') ?
+                                                                    <>
+                                                                        {t(feature)?.split('6')?.[0]}
+                                                                        <span className='font-[InterRegular]'>6</span>
+                                                                        {t(feature)?.split('6')?.[1]}
+                                                                    </>
+                                                                    : t(feature)?.includes('TPMS') ?
+                                                                        <>
+                                                                            {t(feature)?.split('TPMS')?.[0]}
+                                                                            <span className='font-[InterRegular]'>TPMS</span>
+                                                                            {t(feature)?.split('TPMS')?.[1]}
+                                                                        </>
+                                                                        : t(feature)?.includes('ABS') ?
+                                                                            <>
+                                                                                {t(feature)?.split('ABS')?.[0]}
+                                                                                <span className='font-[InterRegular]'>ABS</span>
+                                                                                {t(feature)?.split('ABS')?.[1]}
+                                                                            </>
+                                                                            : t(feature)?.includes('ESC') ?
+                                                                                <>
+                                                                                    {t(feature)?.split('ESC')?.[0]}
+                                                                                    <span className='font-[InterRegular]'>ESC</span>
+                                                                                    {t(feature)?.split('ESC')?.[1]}
+                                                                                </>
+                                                                                : t(feature)?.includes('HAC') ?
+                                                                                    <>
+                                                                                        {t(feature)?.split('HAC')?.[0]}
+                                                                                        <span className='font-[InterRegular]'>HAC</span>
+                                                                                        {t(feature)?.split('HAC')?.[1]}
+                                                                                    </>
+                                                                                    : t(feature)?.includes('LKA') ?
+                                                                                        <>
+                                                                                            {t(feature)?.split('LKA')?.[0]}
+                                                                                            <span className='font-[InterRegular]'>LKA</span>
+                                                                                            {t(feature)?.split('LKA')?.[1]}
+                                                                                        </>
+                                                                                    :
+                                                                                        t(feature)?.includes('FCA') ?
+                                                                                            <>
+                                                                                                {t(feature)?.split('FCA')?.[0]}
+                                                                                                <span className='font-[InterRegular]'>FCA</span>
+                                                                                                {t(feature)?.split('FCA')?.[1]}
+                                                                                            </>
+                                                                                            : t(feature)?.includes('LFA') ?
+                                                                                                <>
+                                                                                                    {t(feature)?.split('LFA')?.[0]}
+                                                                                                    <span className='font-[InterRegular]'>LFA</span>
+                                                                                                    {t(feature)?.split('LFA')?.[1]}
+                                                                                                </>
+                                                                                                :
+                                                                                    
+                                                                                    t(feature)}
                                                     </span>
                                                 </li>
                                             ))}
@@ -227,7 +327,7 @@ const SpecificationsSection = () => {
                         >
                             <span className={`text-lg font-semibold ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
                                 }`}>
-                                {'Dimensions'}
+                                {locale == 'ar' ? 'الأبعاد (مم)':'Dimensions'}
                             </span>
                             <span className={`transform transition-transform text-2xl  ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
                                 } rotate-180 text-white`}>

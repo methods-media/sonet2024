@@ -251,7 +251,7 @@ const VRShowroom = ({ showControl=false }) => {
               >
                 {COLORS?.filter?.((item) => item?.id == currentColor)?.[0]?.name}
               </p>
-              <div className='flex  gap-1.5 lg:gap-3' dir='ltr' >
+              <div className='flex  gap-1.5 lg:gap-3'  >
                 {COLORS.map(color => (
                   <div
                     key={color.id}

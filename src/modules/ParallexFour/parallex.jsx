@@ -178,84 +178,82 @@ const ParallaxFourSection = () => {
                         loop={false}
                         className="h-full w-full"
                     >
-                        {/* Slide 1 - Forward Collision Warning */}
-                        <SwiperSlide className="flex w-full h-full">
+
+                        {[
+
+                            {
+                                title: 'fca',
+                                desc: 'fca1',
+                                icon: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/8dedac8d-4a51-4729-2cd0-d05c410de700/semi'
+                            },
+                            {
+                                title: 'lfa',
+                                desc: 'lfa1',
+                                icon: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/0f07c56e-fc75-47da-6071-fb5f004d6500/semi'
+                            },
+                            {
+                                title: 'hba',
+                                desc: 'hba2',
+                                icon: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/2e9ab1b0-712b-410c-8b64-d52cb8a53500/semi'
+                            },
+                            {
+                                title: 'pdw',
+                                desc: 'pdw2',
+                                icon: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/f8a1c855-3d0b-4ff0-988e-8ba68162c900/semi'
+                            },
+                            {
+                                title: 'rvm',
+                                desc: 'rvm2',
+                                icon: 'https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/de89d88a-a78f-42be-9a66-586783c30400/semi'
+                            },
+
+
+                        ]?.map((item) => <SwiperSlide className="flex w-full h-full">
                             <div className='flex items-start gap-4 w-full h-full'>
                                 <div className="w-1/2 !h-full relative">
                                     <img
-                                        src="https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/7f1345b3-1619-4d97-e64a-352b6db82000/semi"
+                                        src={item?.icon}
                                         alt="Forward Collision Warning"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <div className="w-1/2 h-full flex flex-col justify-start px-16 ">
-                                    <h2 className={`text-5xl  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
-                                        Forward Collision Warning
+                                    <h2 className={`text-3xl  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                                        {t(item?.title)?.includes('FCA') ?
+                                            <>
+                                                {t(item?.title)?.split('FCA')?.[0]}
+                                                <span className='font-[InterBold]'>FCA</span>
+                                                {t(item?.title)?.split('FCA')?.[1]}
+                                            </>
+                                            : t(item?.title)?.includes('LFA') ?
+                                                <>
+                                                    {t(item?.title)?.split('LFA')?.[0]}
+                                                    <span className='font-[InterBold]'>LFA</span>
+                                                    {t(item?.title)?.split('LFA')?.[1]}
+                                                </>
+                                                : t(item?.title)?.includes('PDW') ?
+                                                    <>
+                                                        {t(item?.title)?.split('PDW')?.[0]}
+                                                        <span className='font-[InterBold]'>PDW</span>
+                                                        {t(item?.title)?.split('PDW')?.[1]}
+                                                    </>
+                                                    : t(item?.title)?.includes('RVM') ?
+                                                        <>
+                                                            {t(item?.title)?.split('RVM')?.[0]}
+                                                            <span className='font-[InterBold]'>RVM</span>
+                                                            {t(item?.title)?.split('RVM')?.[1]}
+                                                        </>
+                                                        : t(item?.title)}
                                     </h2>
-                                    <p className={`text-xl text-white/90 leading-relaxed max-w-lg ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
-                                        Advanced sensors detect potential collisions ahead and provide early warnings to help prevent accidents. The system continuously monitors the road ahead, alerting you to potential hazards with visual and audio cues.
-                                    </p>
+                                    <p className={`text-xl text-[#c2c2c2] leading-relaxed max-w-[100%] ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
+                                        {t(item?.desc)}                                    </p>
                                 </div>
-                          </div>
-                          
-                        </SwiperSlide>
+                            </div>
 
-                        {/* Slide 2 - Lane Keeping Assist */}
-                        <SwiperSlide className="flex w-full h-full">
-                            <div className="w-1/2 h-full relative">
-                                <img
-                                    src="https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi"
-                                    alt="Lane Keeping Assist"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="w-1/2 h-full flex flex-col justify-center px-16 bg-gradient-to-r from-black/80 to-black">
-                                <h2 className={`text-5xl font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
-                                    Lane Keeping Assist
-                                </h2>
-                                <p className={`text-xl text-white/90 leading-relaxed max-w-lg ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
-                                    Stay safely in your lane with intelligent assistance that gently guides your vehicle back to center when it detects unintended lane departure. Perfect for long highway drives and enhanced safety.
-                                </p>
-                            </div>
-                        </SwiperSlide>
+                        </SwiperSlide>)}
+                      
 
-                        {/* Slide 3 - Blind Spot Detection */}
-                        <SwiperSlide className="flex w-full h-full">
-                            <div className="w-1/2 h-full relative">
-                                <img
-                                    src="https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/7f1345b3-1619-4d97-e64a-352b6db82000/semi"
-                                    alt="Blind Spot Detection"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="w-1/2 h-full flex flex-col justify-center px-16 bg-gradient-to-r from-black/80 to-black">
-                                <h2 className={`text-5xl font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
-                                    Blind Spot Detection
-                                </h2>
-                                <p className={`text-xl text-white/90 leading-relaxed max-w-lg ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
-                                    Advanced radar sensors monitor your blind spots and alert you to vehicles that may not be visible in your mirrors. Change lanes with confidence knowing you have complete awareness of your surroundings.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-
-                        {/* Slide 4 - Adaptive Cruise Control */}
-                        <SwiperSlide className="flex w-full h-full">
-                            <div className="w-1/2 h-full relative">
-                                <img
-                                    src="https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi"
-                                    alt="Adaptive Cruise Control"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="w-1/2 h-full flex flex-col justify-center px-16 bg-gradient-to-r from-black/80 to-black">
-                                <h2 className={`text-5xl font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
-                                    Adaptive Cruise Control
-                                </h2>
-                                <p className={`text-xl text-white/90 leading-relaxed max-w-lg ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
-                                    Maintain a safe distance from the vehicle ahead while automatically adjusting your speed. Enjoy a more relaxed driving experience with intelligent cruise control that adapts to traffic conditions.
-                                </p>
-                            </div>
-                        </SwiperSlide>
+                  
                     </Swiper>
 
                     {/* Custom Navigation Buttons */}
@@ -288,7 +286,12 @@ const ParallaxFourSection = () => {
                 <div className='relative w-screen h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi)] bg-cover bg-no-repeat'>
                     <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[8%] '>
                         <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('driveMood')}</p>
-                        <p className={`z-[100] text-white w-full text-center text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>{t('driveMood1')}</p>
+                        <p className={`z-[100] text-white w-full text-center text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>
+                            {t('driveMood1')?.split('2024')?.[0]}
+
+<span className='font-[InterRegular]'>2024</span>
+                            {t('driveMood1')?.split('2024')?.[1]}
+                        </p>
 
                     </div>
 

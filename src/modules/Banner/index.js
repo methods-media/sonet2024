@@ -31,7 +31,13 @@ const Banner = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {t('sonetTitle')}
+        {t('sonetTitle')?.includes?.('2024') ?
+          <>
+            {t('sonetTitle')?.split?.('2024')?.[0]}
+            <span className={`font-['InterBold']`}>2024</span>
+            {t('sonetTitle')?.split?.('2024')?.[1]}
+          </>
+          : t('sonetTitle')}
       </motion.h1>
    
      

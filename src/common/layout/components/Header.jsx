@@ -64,13 +64,15 @@ export default function Header() {
             <div className='flex gap-2 items-center ' dir={locale == 'ar' ? 'rtl' : 'ltr'}>
               {sections?.map((item, index) => (
                 <div key={index} className='flex gap-1 items-center'>
-                  <SVG />
+                  <div className={`${locale=='ar'?'rotate-180':''}`}>
+                    <SVG />
+                  </div>
                   <p className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}>{t(item?.text)}</p>
                 </div>
               ))}
 
             </div>
-            <a href={`/${locale == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`} className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}> {locale == 'en' ? "العربية" : "English"}</a>
+            <a href={`/${locale == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`} className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["GSSMedium"]' : 'font-["InterBold"]'} `}> {locale == 'en' ? "العربية" : "English"}</a>
           </div>
         
           <button onClick={toggleMenu} className="p-2 !cursor-pointer md:hidden">

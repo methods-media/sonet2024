@@ -199,15 +199,13 @@ const ParallaxFiveSection = () => {
 
                 <div className='w-screen h-screen '>
                     <div className='h-[30vh] p-10 bg-gradient-to-b from-black from-0% to-transparent to-[90%]'>
-                        <h2 className='text-[36px] text-white' style={{
+                        <h2 className={`text-[36px] text-white ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
                             textShadow:'2px 2px 10px #000000',
-                        }}>The majestic attitude
+                        }}>{t('att')}
 </h2>
-                        <p className='text-lg text-white max-w-[50%]' style={{
+                        <p className={`text-lg text-white max-w-[50%] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
                             textShadow: '2px 2px 10px #000000',
-                        }}>The new Sonet is sure to make a statement.
-                            Redesigned to look intimidating with a bold new tiger nose grille and a suave connected taillight setup.
-                            The new Sonet commands respect and dominates wherever it goes.</p>
+                        }}>{t('att1')}</p>
                     </div>
                     <div className='px-10'>
                         <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
