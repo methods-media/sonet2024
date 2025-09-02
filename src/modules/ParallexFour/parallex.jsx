@@ -208,7 +208,7 @@ const ParallaxFourSection = () => {
                             },
 
 
-                        ]?.map((item) => <SwiperSlide className="flex w-full h-full">
+                        ]?.map((item) => <SwiperSlide key={`innnn${item?.icon?.[0]}`} className="flex w-full h-full">
                             <div className='flex items-start gap-4 w-full h-full'>
                                 <div className="w-1/2 !h-full relative">
                                     <img
