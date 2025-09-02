@@ -67,26 +67,15 @@ const Layout = ({ children }) => {
       <Footer />
 
       {pathname.includes('configurator') ? null :
-        <div dir='ltr' className={`fixed bottom-[1%] flex flex-col  items-end gap-4 right-[1%] z-[50000] `}>
+        <div dir='ltr' className={`fixed bottom-[1%] flex flex-row justify-between w-full px-5  items-center gap-4 right-0 z-[50000] `}>
+          <div className='h-6 w-6'>
+            <svg aria-hidden="true" class="e-font-icon-svg e-fas-info-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>
+            </svg>
+         </div>
       
-          <button id='bookNowBtn' onClick={() => { onClickBookNow() }} className={` group py-3 px-6 cursor-pointer  z-[1100]  bg-white hover:bg-[#05141F] hover:text-white flex items-center gap-3 justify-center rounded-[4px]  ${showScrollTop
-            ? 'opacity-100  translate-x-0'
-            : 'opacity-0  translate-x-16'
-          } transition-all duration-1000 ease-out`}>
-            <img src='/assets/puzzleBlack.svg' className='group-hover:hidden' height={16} width={16} />
-            <img src='/assets/puzzle.svg' height={16} width={16} className='hidden group-hover:flex' />
-          <p className={`text-[14px] ${locale == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"}`}> {i18n?.language=='ar'?`خصص سيارتك الان`:'Build Yours Now'} </p>
-        </button>
-          <button
-            onClick={scrollToTop}
-            className={` w-[50px] h-[35px] cursor-pointer  bg-black/60 text-white flex items-center justify-center rounded-lg shadow-[5px] transition-all duration-300 hover:bg-black  ${showScrollTop
-              ? 'opacity-100  translate-y-0'
-              : 'opacity-0  translate-y-16'
-          } transition-all duration-1000 ease-out`}
-            style={{ zIndex: 1000 }}
-          >
-            <img src='/assets/arrowUp.png' width={20} height={30}/>
-          </button>
+          <button onClick={showScrollTop} className='w-[35px] h-[35px] rounded-sm rotate-270 bg-black/80 text-white text-lg'>{'>'}</button>
+         
       </div>}
      
       {/* Scroll to top button */}

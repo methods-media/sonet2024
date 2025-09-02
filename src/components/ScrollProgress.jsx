@@ -8,25 +8,40 @@ const ScrollProgress = () => {
     const updateScrollProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
+        const progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
       setScrollProgress(progress);
     };
 
-    // Add scroll event listener
-    window.addEventListener('scroll', updateScrollProgress);
+      // Use requestAnimationFrame for smoother performance
+      let ticking = false;
+      const handleScroll = () => {
+          if (!ticking) {
+              requestAnimationFrame(() => {
+                  updateScrollProgress();
+                  ticking = false;
+              });
+              ticking = true;
+          }
+      };
+
+      // Add scroll event listener with passive option for better performance
+      window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Initial calculation
     updateScrollProgress();
 
     // Cleanup
-    return () => window.removeEventListener('scroll', updateScrollProgress);
+      return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+      <div className="fixed bottom-0 left-0 z-[1000] w-full h-1">
       <div 
-        className="h-full bg-red-500 transition-all duration-150 ease-out"
-        style={{ width: `${scrollProgress}%` }}
+              className="h-full bg-red-500"
+              style={{
+                  width: `${scrollProgress}%`,
+                  transition: 'none' // Remove transition for immediate response
+              }}
       />
     </div>
   );

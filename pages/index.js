@@ -7,11 +7,10 @@ import { useRouter } from 'next/router';
 import ParallaxSection from '@src/modules/ParallexFirst/parallex';
 import { Light } from '@src/modules/lights';
 import { SwiperSection } from '@src/modules/SwiperSection';
-import ThreeSixty from '@src/modules/ThreeSixty';
 import ParallaxSecondSection from '@src/modules/ParallexSecond/parallex';
 import ParallaxThirdSection from '@src/modules/ParallexThird/parallex';
 import ParallaxFourSection from '@src/modules/ParallexFour/parallex';
-import SpecificationsSection from '@src/components/SpecificationsSection';
+import ScrollProgress from '@src/components/ScrollProgress';
 import ParallaxFiveSection from '@src/modules/ParallexFive/parallex';
 
 export default function Home() {
@@ -34,6 +33,7 @@ export default function Home() {
 
   return (
     <main className="relative">
+      <ScrollProgress />
 
       <Head>
         {router.locale == 'ar' ? <title> كيا سونيت 2024  - البروشور الرقمي</title> : <title>Kia Sonet 2024 – Digital Brochure</title>}
