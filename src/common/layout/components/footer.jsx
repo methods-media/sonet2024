@@ -110,7 +110,7 @@ export default function Footer () {
 
                      
                         <div className="flex flex-col gap-2 items-center">
-                            <img src='/assets/images/logoWhite.png' width={150} height={50} />
+                            <img src='/assets/logoWhite.png' width={150} height={50} />
                             <div className='flex justify-center gap-4  items-start   ' style={{ direction: 'ltr' }}>
 
                                 <p><span style={{ fontSize: '11px', color: '#A3A8AD' }} className=" font-['InterRegular']">{isArabic ?`كافة الحقوق محفوظة, كيا كوربوريشن 2023 (C)`:'Copyright (C) 2023 Kia Corporation. All Rights Reserved.'}

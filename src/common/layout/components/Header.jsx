@@ -56,7 +56,7 @@ export default function Header() {
         <header className="top-0 fixed z-[20000] left-0 w-full shadow-md  p-4 flex items-center justify-between  h-[76px]  bg-[#05141f] " dir='ltr'>
           <div className="w-full  items-center hidden md:flex justify-between px-5">
             <img
-              src="/assets/images/logoWhite.png"
+              src="/assets/logoWhite.png"
               width={100}
               alt="Logo"
               className="h-[30px] w-[100px]"
@@ -80,7 +80,7 @@ export default function Header() {
           </button>
           <div className="flex-1 flex justify-center md:hidden">
             <img
-              src="/assets/images/logoWhite.png"
+              src="/assets/logoWhite.png"
               width={'110px'}
               height={'50px'}
               alt="Logo"
