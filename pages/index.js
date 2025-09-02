@@ -11,6 +11,8 @@ import ThreeSixty from '@src/modules/ThreeSixty';
 import ParallaxSecondSection from '@src/modules/ParallexSecond/parallex';
 import ParallaxThirdSection from '@src/modules/ParallexThird/parallex';
 import ParallaxFourSection from '@src/modules/ParallexFour/parallex';
+import SpecificationsSection from '@src/components/SpecificationsSection';
+import ParallaxFiveSection from '@src/modules/ParallexFive/parallex';
 
 export default function Home() {
   const { t, i18n } = useTranslation('common');
@@ -45,7 +47,10 @@ export default function Home() {
       <SwiperSection />
       <ParallaxSecondSection />
       <ParallaxThirdSection />
-      <ParallaxFourSection/>
+      <ParallaxFourSection />
+   <ParallaxFiveSection/>
+     
+
     </main>
   );
 }

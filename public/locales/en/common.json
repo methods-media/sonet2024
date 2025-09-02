@@ -50,6 +50,25 @@
   "ADSF": "Advanced Driving Safety Features",
   "lka": "Lane Keeping Assist (LKA)",
   "driveMood": "Drive Mode Select",
-  "driveMood1": "Transform your driving experience with the Kia Sonet 2024’s Drive Mode Select. Choose from Eco for maximum fuel efficiency, Normal for balanced performance, or Sport for a more exhilarating ride with sharper handling and quicker acceleration."
+  "driveMood1": "Transform your driving experience with the Kia Sonet 2024’s Drive Mode Select. Choose from Eco for maximum fuel efficiency, Normal for balanced performance, or Sport for a more exhilarating ride with sharper handling and quicker acceleration.",
+  "powerOfBeast": "Power of a beast",
+  "powerOfBeast1": "At the heart of every new Sonet is an engine throbbing with power. Power that’s honed by precision driving dynamics with fuel-efficient engine Put pedal to the metal, and let every road hear you roar.",
+  "hp": "Horsepower",
+  "torque": "Max Torque (kgf·m)",
+  "trans": "Transmission",
+  "specs": "Specifications",
+  "speed": "6-speed A/T",
+  "liter": "1.5 Liter",
+  "rpm": "115 ps / 6,300 rpm",
+  "DM": "Drive Mode Select",
+  "DM1": "Sport / ECO / Normal",
+  "airBags": "6 Airbags",
+  "airBag1":"(Driver + Passenger + Side & Curtain)",
+  "audio":"Smart Audio",
+  "smart2":"Android Auto / Apple Carplay",
+  "chg":"Wireless Charger",
+  "warranty":"5 Years Warranty"
+
+
 }
 

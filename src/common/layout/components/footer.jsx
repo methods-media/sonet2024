@@ -10,48 +10,18 @@ export default function Footer () {
           
 {pathname.includes('configurator')?null:
 <>
-                    <div className="w-screen bg-[url('https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ff405cbc-5555-4b50-4e1d-1ba45e99d800/public')] footer-img  bg-no-repeat flex flex-col justify-start items-start bg-cover bg-center h-[40vh] md:h-screen bg-[#05141F]">
-                        <div className={`${locale == 'ar' ? 'min-h-[8vh] md:min-h-[25vh]' : 'min-h-[8vh] md:min-h-[40vh]'}  footer-img-text md:mt-0   flex w-full flex-col justify-center `}
-                 dir="ltr" >
-                            <div className="bg-gradient-to-b from-white to-transparent w-full flex flex-col justify-between   h-[40vh]">
-                                <div className={`w-full px-12 flex flex-col gap-5 mx-auto  ${isArabic ?'items-end':''}`}>
-                                    <p className={`text-xl lg:text-[40px] text-start ${isArabic ?'font-[GSSMedium]':'font-[InterBold]'}`}>{isArabic ?`أينما تأخذك الحياة`:`Wherever life takes you`}</p>
-                                    <p className={`text-sm lg:text-lg text-black text-start ${isArabic ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>
-                                        {isArabic ? `سواء كنت تتجول في شوارع المدينة أو تتحدى أصعب الطرق. عِش الحرية الحقيقية وجرّب مزيج القوة والأناقة الذي لا تقدمه سوى كيا تاسمان.` : <>
-                                        
-                                            Whether navigating city streets or conquering the toughest trails. Embrace the freedom <br />
-                                            to go further and experience the perfect blend of capability and style<br />
-                                            that only Kia Tasman can deliver.</>}
-                                      
-
-                                    </p>
-                                </div>
-                           </div>
-                   
-                         
-
-                </div>
-                    </div>
-                    <div dir={'ltr'} className='!bg-[#05141F] w-full  flex  flex-col lg:flex-row  items-center h-[260px] py-10 lg:py-0 lg:h-[120px] justify-between  px-10 relative  '>
-
-                        <div className="flex flex-col gap-2 items-start">
-                            <img src='/assets/images/logoWhite.png' width={100} height={37} />
-                            <div className='flex justify-center gap-4  items-start   ' style={{ direction: 'ltr' }}>
-
-                                <p><span style={{ fontSize: '11px', color: '#A3A8AD' }} className=" font-['InterRegular']">© 2025 All Right Reserved. Kia Middle East</span></p>
-
-                            </div>
-                        </div>
-
+            
+                    <div dir={'ltr'} className='!bg-[#05141F] w-full h-[50vh]  flex  flex-col justify-between gap-8   items-center py-10  px-10 relative  '>
+                     
                         <div className=' flex flex-wrap justify-center  gap-4 items-center   '>
                             <a href='https://worldwide.kia.com/int/kia-global-websites' target="_blank" rel="noopener">
-                            <img src='/assets/world.png' className='w-[24px] h-[24px]' />
+                                <img src='/assets/world.png' className='w-[24px] h-[24px]' />
                             </a>
                             <a href='https://www.facebook.com/KiaMiddleEastandAfrica/' target="_blank" rel="noopener">
-                            <img src='/assets/fb.png' className='w-[24px] h-[24px]' />
+                                <img src='/assets/fb.png' className='w-[24px] h-[24px]' />
                             </a>
-                            <a href='https://x.com/KIA__MEA' target="_blank" rel="noopener"> 
-                            <img src='/assets/x.png' className='w-[24px] h-[24px]' />
+                            <a href='https://x.com/KIA__MEA' target="_blank" rel="noopener">
+                                <img src='/assets/x.png' className='w-[24px] h-[24px]' />
                             </a>
 
                             <a href='https://www.instagram.com/kia_mea/' target="_blank" rel="noopener">
@@ -61,28 +31,37 @@ export default function Footer () {
                                 <img src='/assets/link.png' className='w-[24px] h-[24px]' />
                             </a>
                             <a href='https://www.youtube.com/channel/UClAYWjFznLNw3saZHA5OkNw' target="_blank" rel="noopener">
-                            <Youtube className='text-white' width={24} height={24} />
+                                <Youtube className='text-white' width={24} height={24} />
                             </a>
                             <a href='https://www.tiktok.com/@kia.mea' target="_blank" rel="noopener">
                                 <img src='/assets/tiktok.png' className='w-[24px] h-[24px]' />
                             </a>
-                                
+
                             <a href='https://www.snapchat.com/add/kia-mea' target="_blank" rel="noopener">
                                 <img src='/assets/snap.png' className='w-[24px] h-[24px]' />
-                               </a>
-                          
+                            </a>
+
 
 
                         </div>
+                        <p className="text-xs text-[#828692] text-center max-w-[70%]">
+                            All information contained in this catalog is based on data available at the time of publication. Descriptions are correct; Kia Corporation strives to maintain accuracy; however, accuracy cannot be guaranteed at all times. Occasionally, Kia Corporation needs to update or modify vehicle features and information already shown in this catalog. All photos and displays are simulated. Kia Corporation, through publication and distribution of this material, makes no warranty, express or implied, for any Kia products. Contact your nearest Authorized Kia Dealer for updated information. Some features shown may not be available in some regions. Consult your Authorized Kia Dealer for equipment. “Trademark”/”M.R.”/”®”. All rights reserved. The text, images, and graphics included in the catalog are protected by copyright and industrial property rights. Content may not be copied, disseminated, altered, or made commercially available to third parties. Unless otherwise specified, all trademarks, trade names, and trade notices in this catalog are protected under industrial property law. This applies to Kia trademarks, trade names, logos, and emblems. The trademarks, trade names, trade dress and design elements used in this catalog are the industrial property of Kia Corporation. 2023 Kia Corporation. Reproduction of the contents of this material without permission of Kia Corporation is prohibited.
 
-                        <div className="opacity-0">
-                            <img src='/assets/images/logoWhite.png' width={100} height={37} />
-                            <div className='flex justify-center gap-4  items-center   ' style={{ direction: 'ltr' }}>
 
-                                <p><span style={{ fontSize: '11px', color: '#A3A8AD' }} className=" font-['InterRegular']">© 2025 All Right Reserved. Kia Middle East</span></p>
+                        </p>
+                      
+
+                     
+                        <div className="flex flex-col gap-2 items-center">
+                            <img src='/assets/images/logoWhite.png' width={150} height={50} />
+                            <div className='flex justify-center gap-4  items-start   ' style={{ direction: 'ltr' }}>
+
+                                <p><span style={{ fontSize: '11px', color: '#A3A8AD' }} className=" font-['InterRegular']">Copyright (C) 2023 Kia Corporation. All Rights Reserved.
+</span></p>
 
                             </div>
                         </div>
+                   
 
                     </div></>
               
