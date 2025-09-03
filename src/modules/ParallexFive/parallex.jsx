@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import SpecificationsSection from '@src/components/SpecificationsSection';
+import LottieIcon from '@src/components/LottieIcon';
 
 const ParallaxFiveSection = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -176,18 +177,29 @@ const ParallaxFiveSection = () => {
 
                         >{t('powerOfBeast1')}</p>
                         <div className='flex items-start w-full justify-around pb-12 '>
-                            <div className='flex flex-col'>
+                            <div className='flex items-center gap-2'>
+                                
+                                <LottieIcon src={'/assets/horse.json'} width={64} height={64} />
+                                <div className='flex flex-col'>
+                                    
                                 <p className='text-base text-[#BDBDBD]'>{t('hp')}</p>
                                 <p className='text-xl font-[InterBold] text-white'>{115}</p>
                             </div>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <LottieIcon src={'/assets/piston.json'} width={64} height={64} />
                             <div className='flex flex-col'>
                                 <p className='text-base text-[#BDBDBD]'>{t('torque')}</p>
                                 <p className='text-xl font-[InterBold] text-white'>{14.7}</p>
+                                </div>
                             </div>
+                                <div className='flex items-center gap-2'>
+                                    <LottieIcon src={'/assets/gears.json'} width={64} height={64} />
                             <div className='flex flex-col'>
                                 <p className='text-base text-[#BDBDBD]'>{t('trans')}</p>
                                 <p className='text-xl font-bold text-white'>{t('speed')}</p>
                             </div>
+                              </div>
                         </div>
                     </div>
 

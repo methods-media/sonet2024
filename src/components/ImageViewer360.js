@@ -63,7 +63,7 @@ const [on,setOn]=useState(false)
 
             {!on ? <div onClick={()=>setOn(true)} className=' cursor-pointer absolute left-0 top-0 min-h-screen min-w-screen bg-black/30 gap-6 flex flex-col items-center justify-center z-[100]'
             >
-                <img src={'/assets/icons8-360-degrees-96.png'} width={120} height={120} />
+                <img src={'/assets/330.png'} width={120} height={120} />
                 <p className='text-white  w-full text-center text-[24px]'>
 
                     {t('click')}

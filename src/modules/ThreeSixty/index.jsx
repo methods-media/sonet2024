@@ -174,12 +174,6 @@ const ThreeSixty = ({ showControl = false }) => {
       }}
     >
 
-      <div
-       
-        className={isOn ? `mt-0 lg:mt-12.5 absolute top-0 right-0 text-white text-sm z-50  gap-2  items-center` : `absolute top-0 right-0 w-full h-full flex flex-col justify-center items-center `}
-
-      >
-
         <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
           {t('discover')?.split('360')?.[0]}
           <span className='font-[InterBold]'>{'360°'}</span>
@@ -188,6 +182,12 @@ const ThreeSixty = ({ showControl = false }) => {
   
           
         </p>
+      <div
+       
+        className={isOn ? `mt-0 lg:mt-12.5 absolute top-0 right-0 text-white text-sm z-50  gap-2  items-center` : `absolute top-0 right-0 w-full h-full flex flex-col justify-center items-center `}
+
+      >
+
 
         {view == 'exterior' ?
           isOn ? null :

@@ -20,6 +20,7 @@ const ParallaxFourSection = () => {
     const sectionRef = useRef(null);
     const { t, i18n } = useTranslation('common')
     const { locale } = useRouter()
+    const [cardsToShow,setCardsToShow]=useState(3)
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -91,6 +92,35 @@ const ParallaxFourSection = () => {
             setIsInView(false);
         };
     }, [handleScroll]);
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            let newCardsToShow;
+            if (width < 600) {
+                newCardsToShow = 1; // Mobile: 1 card
+            } else if (width < 1050) {
+                newCardsToShow = 2; // Tablet: 2 cards
+            } else {
+                newCardsToShow = 3; // Desktop: 3 cards
+            }
+
+            // Reset currentSlide if the new cardsToShow would cause issues
+            if (newCardsToShow !== cardsToShow) {
+                setCardsToShow(newCardsToShow);
+            }
+        };
+
+        // Set initial value
+        handleResize();
+
+        // Add event listener
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', handleResize);
+    }, [cardsToShow]);
 
     return (
         <ParallaxProvider key={'px12'}>
@@ -168,11 +198,11 @@ const ParallaxFourSection = () => {
 
                 {/* Safety Features Swiper Section */}
                 <div className='w-screen p-10 h-[90vh] bg-[#05141f]'>
-                    <div className="relative h-full w-full">
+                    <div className="relative flex flex-col pt-[8%] justify-center  w-full">
                     <Swiper
                         modules={[Navigation]}
                         spaceBetween={0}
-                        slidesPerView={1}
+                            slidesPerView={cardsToShow}
                             navigation={{
                                 nextEl: '.swiper-button-next-custom',
                                 prevEl: '.swiper-button-prev-custom',
@@ -180,7 +210,7 @@ const ParallaxFourSection = () => {
                         autoplay={false}
                         
                         loop={false}
-                        className="h-full w-full"
+                        className=" w-full"
                     >
 
                         {[
@@ -212,17 +242,17 @@ const ParallaxFourSection = () => {
                             },
 
 
-                        ]?.map((item) => <SwiperSlide key={`innnn${item?.icon?.[0]}`} className="flex w-full h-full">
-                            <div className='flex items-start gap-4 w-full h-full'>
-                                <div className="w-1/2 !h-full relative">
+                        ]?.map((item) => <SwiperSlide key={`innnn${item?.icon?.[0]}`} className="flex mx-2 flex-col w-full h-full">
+                            <div className='flex flex-col items-start gap-4 w-full h-full'>
+                                <div className="w-full !h-auto relative">
                                     <img
                                         src={item?.icon}
                                         alt="Forward Collision Warning"
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover rounded-md"
                                     />
                                 </div>
-                                <div className="w-1/2 h-full flex flex-col justify-start px-16 ">
-                                    <h2 className={`text-3xl  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                                <div className="w-full h-auto  flex flex-col items-center justify-start  ">
+                                    <h2 className={`text-2xl text-center  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                                         {t(item?.title)?.includes('FCA') ?
                                             <>
                                                 {t(item?.title)?.split('FCA')?.[0]}
@@ -249,7 +279,7 @@ const ParallaxFourSection = () => {
                                                         </>
                                                         : t(item?.title)}
                                     </h2>
-                                    <p className={`text-xl text-[#c2c2c2] leading-relaxed max-w-[100%] ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
+                                    <p className={`text-lg text-center text-[#c2c2c2] leading-relaxed max-w-[100%] ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
                                         {t(item?.desc)}                                    </p>
                                 </div>
                             </div>

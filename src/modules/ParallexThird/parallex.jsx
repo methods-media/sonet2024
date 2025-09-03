@@ -154,7 +154,7 @@ const ParallaxThirdSection = () => {
 
 
 
-                <PanoramaViewer imageUrl={'/assets/ktk-int360.jpg'}/>
+                <PanoramaViewer imageUrl={'/assets/KQYC24-360IN.jpg'}/>
 
                 <div className='bg-black/50 w-screen h-screen flex flex-col justify-center gap-[200px] items-center'>
                     <motion.p
@@ -170,7 +170,7 @@ const ParallaxThirdSection = () => {
 
                 <div className='relative w-screen h-screen'>
                     <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[24px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('ADSF')}</p>
-                    <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[12%] '>
+                    <div className='w-screen flex flex-col gap-6 bg-gradient-to-b from-transparent  to-black  items-center absolute left-0 bottom-0  pb-[2%]'>
                         <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
                             {t('lka')?.split('LKA')?.[0]}
                             <span className='font-[InterBold]'>LKA</span>
