@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 export const SwiperSection = ({ id }) => {
     const [expanded, setExpanded] = useState('star')
     const [isTransitioning, setIsTransitioning] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
     const { t, i18n } = useTranslation('common');
     const ids = [
         {
@@ -79,6 +80,17 @@ export const SwiperSection = ({ id }) => {
             return ids
     }, [id])
 
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 768)
+        }
+
+        checkScreenSize()
+        window.addEventListener('resize', checkScreenSize)
+
+        return () => window.removeEventListener('resize', checkScreenSize)
+    }, [])
+
 
 
     const handleItemClick = (itemId) => {
@@ -100,8 +112,16 @@ export const SwiperSection = ({ id }) => {
         return `100px`
     }
 
+    const getItemHeight = (itemId) => {
+        if (expanded === itemId) {
+            return `calc(82vh - ${(data.length - 1) * 70}px)`
+        }
+        return `70px`
+    }
+
+
     return (
-        <div className="h-[83vh] w-screen flex items-center bg-amber-50 overflow-hidden  border-x-[5px] border-y-[10px] border-white">
+        <div className={`h-[83vh] w-screen flex items-center bg-amber-50 overflow-hidden border-x-[5px] border-y-[2.5px] md:border-y-[10px] border-white ${isMobile ? 'flex-col' : 'flex-row'}`}>
             {data.map((item) => (
                 <div
                     key={item.id}
@@ -111,10 +131,12 @@ export const SwiperSection = ({ id }) => {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
-                        width: getItemWidth(item.id),
-                        minWidth: getItemWidth(item.id)
+                        width: isMobile ? '100%' : getItemWidth(item.id),
+                        minWidth: isMobile ? '100%' : getItemWidth(item.id),
+                        height: isMobile ? getItemHeight(item.id) : '83vh',
+                        minHeight: isMobile ? getItemHeight(item.id) : '83vh'
                     }}
-                    className={`cursor-pointer relative !min-h-[83vh] border-[5px] border-white !h-[83vh] transition-all duration-700 ease-in-out ${expanded === item.id ? 'flex-shrink-0' : 'flex-shrink'
+                    className={`cursor-pointer relative border-[2.5px] md:border-[5px] border-white transition-all duration-700 ease-in-out ${expanded === item.id ? 'flex-shrink-0' : 'flex-shrink'
                         }`}
                 >
                     {expanded == item?.id ? null : <div
@@ -126,9 +148,9 @@ export const SwiperSection = ({ id }) => {
                         className="!min-w-full absolute top-0 left-0  !min-h-full  bg-gradient-to-b flex items-center justify-center from-transparent from-[75%] to-black to-[100%]">
                         <h3
                             style={{
-                                writingMode: 'vertical-rl'
+                                writingMode: isMobile ? 'horizontal-tb' : 'vertical-rl'
                             }}
-                            className={`text-[24px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} `}>
+                            className={`text-base  md:text-[24px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} `}>
                             
                             {
                                 t(item.title)?.includes('LED') ?
@@ -180,7 +202,7 @@ export const SwiperSection = ({ id }) => {
                     {/* Content overlay when expanded */}
                     {expanded === item.id && !isTransitioning && (
                         <div className="w-full bg-gradient-to-b from-transparent from-75% to-black to-100% flex flex-col h-full items-center justify-end gap-2 pb-5 animate-fadeIn">
-                            <h3 className={`text-[24px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} animate-slideUp`}>
+                            <h3 className={`text-base md:text-[24px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'} animate-slideUp`}>
                                
                                 {
                                     t(item.title)?.includes('LED') ?
@@ -226,7 +248,7 @@ export const SwiperSection = ({ id }) => {
                                                         : t(item.title)}
                             
                             </h3>
-                            <p className={`text-base text-white max-w-[70%] text-center ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'} animate-slideUp`}>
+                            <p className={`text-sm md:text-base text-white max-w-[90%] md:max-w-[70%] text-center ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'} animate-slideUp`}>
                                 
                                 
                                 {t(item.description)?.includes('16') ?

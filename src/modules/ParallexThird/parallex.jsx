@@ -33,22 +33,27 @@ const ParallaxThirdSection = () => {
         // Check if this section is in view
         if (sectionRef.current) {
             const rect = sectionRef.current.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const isMobile = viewportHeight < 768;
+
+            // Mobile-specific thresholds - more conservative to prevent early triggering
+            const threshold = isMobile ? 100 : 500; // Much smaller threshold for mobile
+            const exitThreshold = isMobile ? -50 : -200; // Smaller exit threshold for mobile
+
             // Section is in view when it's visible and not completely scrolled past
-            // Use a threshold to ensure the parallax background is removed when section ends
-            const threshold = 100; // pixels from the bottom
-            const isVisible = rect.top < window.innerHeight && rect.bottom > threshold;
+            const isVisible = rect.top < viewportHeight && rect.bottom > threshold;
 
             // If scrolling down and section is completely out of view, ensure parallax is removed
-            if (scrollDirection === 'down' && rect.bottom < 0) {
+            if (scrollDirection === 'down' && rect.bottom < exitThreshold) {
                 setIsInView(false);
-            } else if (rect.bottom < -50) {
+            } else if (rect.bottom < exitThreshold) {
                 // Additional check: if section is completely scrolled past, remove parallax
                 setIsInView(false);
-            } else if (rect.top > window.innerHeight) {
+            } else if (rect.top > viewportHeight) {
                 // If section is completely above the viewport, remove parallax
                 setIsInView(false);
-            } else if (rect.bottom < window.innerHeight * 0.1) {
-                // If section is almost completely scrolled past (90% of viewport height), remove parallax
+            } else if (isMobile && rect.bottom < viewportHeight * 0.2) {
+                // Mobile-specific: remove parallax when section is 80% scrolled past
                 setIsInView(false);
             } else {
                 // Use a small delay to ensure smooth transitions
@@ -59,8 +64,6 @@ const ParallaxThirdSection = () => {
                     setIsInView(isVisible);
                 }
             }
-
-
         }
     }, [prevScrollY]);
 
@@ -115,32 +118,12 @@ const ParallaxThirdSection = () => {
   object-fit: cover;
 }
 
-.content22 {
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  color: white;
- 
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-}
+@media (max-width: 768px) {
+  .parallax-container2 {
+    height: 180vh !important;
+                }}
 
-.content33 {
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 50px;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
                 
                 `}
             </style>
@@ -156,33 +139,33 @@ const ParallaxThirdSection = () => {
 
                 <PanoramaViewer imageUrl={'/assets/KQYC24-360IN.jpg'}/>
 
-                <div className='bg-black/50 w-screen h-screen flex flex-col justify-center gap-[200px] items-center'>
+                <div className='bg-black/50 w-screen h-[50vh] md:h-screen flex flex-col justify-center gap-[70px] md:gap-[200px] items-center'>
                     <motion.p
                         className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
                         {t('safety2')}
                     </motion.p>
-                    <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
                 </div>
 
-                <div className='relative w-screen h-screen'>
-                    <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[24px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('ADSF')}</p>
-                    <div className='w-screen flex flex-col gap-6 bg-gradient-to-b from-transparent  to-black  items-center absolute left-0 bottom-0  pb-[2%]'>
-                        <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
+                <div className='relative h-[70vh] w-screen md:h-screen'>
+                    <p className={`z-[100] text-white absolute  md:top-[3%] w-full text-center text-[24px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('ADSF')}</p>
+                    <div className='w-screen flex flex-col gap-2 md:gap-6 bg-gradient-to-b from-transparent  to-black  items-center absolute left-0 bottom-0  pb-[4%] md:pb-[2%]'>
+                        <p className={`z-[100] text-white w-full text-center text-lg md:text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
                             {t('lka')?.split('LKA')?.[0]}
                             <span className='font-[InterBold]'>LKA</span>
 
                             {t('lka')?.split('LKA')?.[1]}
                         </p>
-                        <p className={`z-[100] text-white w-full text-center text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>{t('lka1')}</p>
+                        <p className={`z-[100] text-white w-full text-center text-sm md:text-lg max-w-[90%] md:max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>{t('lka1')}</p>
 
                     </div>
 
                    
-                    <video loop muted autoPlay playsInline src='/assets/KQYC24-Safety-LKA.mp4' className='w-screen h-screen object-cover'/>
+                    <video loop muted autoPlay playsInline src='/assets/KQYC24-Safety-LKA.mp4' className='w-screen h-[70vh] md:h-screen object-cover' />
                </div>
 
 

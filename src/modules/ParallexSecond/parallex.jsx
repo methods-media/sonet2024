@@ -90,10 +90,17 @@ const ParallaxSecondSection = () => {
         <ParallaxProvider key={'px12'}>
             <style>
                 {`
+             
               .parallax-container1 {
   position: relative;
   height: 283vh; /* Make the container tall enough to allow scrolling */
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .parallax-container1 {
+    height: 183vh !important;
+  }
 }
 
 .parallax-video1 {
@@ -104,50 +111,24 @@ const ParallaxSecondSection = () => {
   height: 100vh;
   object-fit: cover;
   z-index: ${isInView ? '-1' : '-10'};
-  opacity: ${isInView ? '1' : '0'};
-  transition: opacity 0.3s ease, z-index 0.3s ease;
+  transition: z-index 0.3s ease;
+ 
 }
 
-.image-element {
+.video-element1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.content22 {
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  color: white;
- 
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-}
 
-.content33 {
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 50px;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-                
-                `}
+             `}
             </style>
 
 
             <div className="parallax-container1" ref={sectionRef}  >
                 <div className={`parallax-video1 ${isInView ? '' : 'opacity-0'}`}>
-                    <img src='https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/e83bb693-560b-4ea6-6fec-3bae2eac2400/semi' className="image-element" alt="Parallax background" />
+                    <img src='https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/e83bb693-560b-4ea6-6fec-3bae2eac2400/semi' className="video-element1" alt="Parallax background" />
 
                 </div>
 
@@ -155,14 +136,14 @@ const ParallaxSecondSection = () => {
 
                 <ThreeSixty />
 
-                <div className='bg-black/50 w-screen h-screen flex flex-col justify-center gap-[200px] items-center'>
+                <div className='bg-black/50 w-screen h-[50vh] md:h-screen flex flex-col justify-center gap-[70px] md:gap-[200px] items-center'>
                     <motion.p
                         className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
                         {t('interior')}
                     </motion.p>
-                    <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
                 </div>

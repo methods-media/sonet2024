@@ -98,7 +98,7 @@ const ParallaxFourSection = () => {
         const handleResize = () => {
             const width = window.innerWidth;
             let newCardsToShow;
-            if (width < 600) {
+            if (width < 768) {
                 newCardsToShow = 1; // Mobile: 1 card
             } else if (width < 1050) {
                 newCardsToShow = 2; // Tablet: 2 cards
@@ -131,7 +131,11 @@ const ParallaxFourSection = () => {
   height: 290vh; /* Make the container tall enough to allow scrolling */
   overflow: hidden;
 }
-
+@media (max-width: 768px) {
+  .parallax-container3 {
+    height: 180vh !important;
+  }
+                }
 .parallax-video3 {
   position: fixed;
   top: 0;
@@ -197,20 +201,20 @@ const ParallaxFourSection = () => {
 
 
                 {/* Safety Features Swiper Section */}
-                <div className='w-screen p-10 h-[90vh] bg-[#05141f]'>
-                    <div className="relative flex flex-col pt-[8%] justify-center  w-full">
+                <div className='w-screen p-10 h-[70vh] md:h-[90vh] bg-[#05141f]'>
+                    <div className="relative flex flex-col pt-[8%] justify-center w-full overflow-hidden">
                     <Swiper
                         modules={[Navigation]}
-                        spaceBetween={0}
+                            spaceBetween={cardsToShow === 1 ? 0 : 16}
                             slidesPerView={cardsToShow}
                             navigation={{
                                 nextEl: '.swiper-button-next-custom',
                                 prevEl: '.swiper-button-prev-custom',
                             }}
                         autoplay={false}
-                        
+                            centeredSlides={cardsToShow === 1}
                         loop={false}
-                        className=" w-full"
+                            className=" w-full overflow-hidden"
                     >
 
                         {[
@@ -242,7 +246,7 @@ const ParallaxFourSection = () => {
                             },
 
 
-                        ]?.map((item) => <SwiperSlide key={`innnn${item?.icon?.[0]}`} className="flex mx-2 flex-col w-full h-full">
+                            ]?.map((item) => <SwiperSlide key={`innnn${item?.title}`} className={`flex flex-col w-full h-full ${cardsToShow === 1 ? '' : 'mx-2'}`}>
                             <div className='flex flex-col items-start gap-4 w-full h-full'>
                                 <div className="w-full !h-auto relative">
                                     <img
@@ -252,7 +256,7 @@ const ParallaxFourSection = () => {
                                     />
                                 </div>
                                 <div className="w-full h-auto  flex flex-col items-center justify-start  ">
-                                    <h2 className={`text-2xl text-center  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                                        <h2 className={`text-base md:text-2xl  text-center  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                                         {t(item?.title)?.includes('FCA') ?
                                             <>
                                                 {t(item?.title)?.split('FCA')?.[0]}
@@ -279,7 +283,7 @@ const ParallaxFourSection = () => {
                                                         </>
                                                         : t(item?.title)}
                                     </h2>
-                                    <p className={`text-lg text-center text-[#c2c2c2] leading-relaxed max-w-[100%] ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
+                                        <p className={`text-sm md:text-lg text-center text-[#c2c2c2] leading-relaxed max-w-[100%] ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
                                         {t(item?.desc)}                                    </p>
                                 </div>
                             </div>
@@ -291,13 +295,13 @@ const ParallaxFourSection = () => {
                     </Swiper>
 
                     {/* Custom Navigation Buttons */}
-                        <button className="swiper-button-prev-custom absolute -left-4  cursor-pointer top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-200">
+                        <button className="swiper-button-prev-custom z-20  absolute left-0  cursor-pointer top-1/2 transform -translate-y-1/2  w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-200">
                             <svg className="w-6 h-6 text-[#05141f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
                     </button>
 
-                        <button className="swiper-button-next-custom absolute -right-4 cursor-pointer top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-200">
+                        <button className="swiper-button-next-custom absolute z-20 right-0 cursor-pointer top-1/2 transform -translate-y-1/2  w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-200">
                             <svg className="w-6 h-6 text-[#05141f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -309,22 +313,22 @@ const ParallaxFourSection = () => {
 
 
 
-                <div className='bg-black/50 w-screen h-screen flex flex-col justify-center gap-[200px] items-center'>
+                <div className='bg-black/50 w-screen h-[40vh] md:h-screen flex flex-col justify-center gap-[70px] md:gap-[200px] items-center'>
                     <motion.p
                         className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
                         {t('performance')}
                     </motion.p>
-                    <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
                 </div>
 
-                <div className='relative w-screen h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi)] bg-cover bg-no-repeat'>
+                <div className='relative w-screen h-[70vh] md:h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi)] bg-cover bg-no-repeat'>
                     <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[8%] '>
-                        <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('driveMood')}</p>
-                        <p className={`z-[100] text-white w-full text-center text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>
+                        <p className={`z-[100] text-white w-full text-center text-lg md:text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('driveMood')}</p>
+                        <p className={`z-[100] text-white w-full text-center text-sm md:text-lg max-w-[90%] md:max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>
                             {t('driveMood1')?.split('2024')?.[0]}
 
 <span className='font-[InterRegular]'>2024</span>

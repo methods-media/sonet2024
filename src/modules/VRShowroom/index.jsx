@@ -222,7 +222,7 @@ const VRShowroom = ({ showControl=false }) => {
 
   return (
     <div
-      className={`vr-showroom h-[500px] showRoom-container lg:h-screen z-[110]`}
+      className={`vr-showroom h-[53vh] showRoom-container md:h-screen z-[110]`}
       style={{
         aspectRatio: '16/9',
         maxWidth: '100%',
@@ -247,7 +247,7 @@ const VRShowroom = ({ showControl=false }) => {
             {showControl ? null : <div className='flex flex-col items-center gap-2 lg:gap-4'>
               <p
                 key={colorTextKey}
-                className={`text-white text-base lg:text-2xl animate-fadeInUp ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}
+                className={`text-white text-sm md:text-base lg:text-2xl animate-fadeInUp ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}
               >
                 {COLORS?.filter?.((item) => item?.id == currentColor)?.[0]?.name}
               </p>
@@ -259,8 +259,7 @@ const VRShowroom = ({ showControl=false }) => {
                   >
                     <img
                       onClick={() => handleColorChange(color.id)}
-
-                      src={color.hex} width={50} height={50} className={`cursor-pointer  ${color.id==currentColor?'border border-white rounded-full':''}`} />
+                      src={color.hex} width={50} height={50} className={`cursor-pointer  h-8 w-8 md:h-[50px] md:w-[50px]  ${color.id==currentColor?'border border-white rounded-full':''}`} />
 
                   </div>
                 ))}
@@ -313,8 +312,8 @@ const VRShowroom = ({ showControl=false }) => {
             userSelect: 'none',
             WebkitUserSelect: 'none',
             pointerEvents: 'none',
-            minHeight:'100vh'
           }}
+          className='min-h-[55vh] md:min-h-[100vh]'
           draggable={false}
         /> 
       </div>

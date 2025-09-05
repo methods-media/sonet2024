@@ -96,6 +96,12 @@ const ParallaxSection = () => {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .parallax-container {
+    height: 180vh !important;
+  }
+}
+
 .parallax-video {
   position: fixed;
   top: 0;
@@ -105,6 +111,7 @@ const ParallaxSection = () => {
   object-fit: cover;
   z-index: ${isInView ? '-1' : '-10'};
   transition: z-index 0.3s ease;
+ 
 }
 
 .video-element {
@@ -113,33 +120,6 @@ const ParallaxSection = () => {
   object-fit: cover;
 }
 
-.content2 {
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 50px;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.content3 {
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 50px;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
                 
                 `}
             </style>
@@ -148,22 +128,24 @@ const ParallaxSection = () => {
                 <div className={`parallax-video   bg-[url("https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/fe24eb09-b2e3-4bce-632b-81da6fa9f000/semi")] bg-cover bg-no-repeat bg-center  ${isInView ? '' : 'opacity-0'}`}>
 
                 </div>
-                <div className='w-screen h-screen'>
+                <div className='w-screen h-[65vh] md:h-screen'>
                     <BannerSecond />
                 </div>
-                <div className='bg-black/50 w-screen h-screen flex flex-col justify-center gap-[200px] items-center'>
+                <div className='bg-black/50 w-screen h-[60vh] md:h-screen flex flex-col justify-center gap-[70px] md:gap-[200px] items-center'>
                     <motion.p
                         className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
                         {t('ext')}
                     </motion.p>
-                    <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
                 </div>
 
-                <VRShowroom />
+                <div className='w-screen h-[55vh] md:h-screen'>
+                    <VRShowroom />
+                </div>
             </div>
         </ParallaxProvider>
     );

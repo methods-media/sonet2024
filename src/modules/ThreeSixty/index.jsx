@@ -162,7 +162,7 @@ const ThreeSixty = ({ showControl = false }) => {
   }
   return (
     <div
-      className={`vr-showroom h-[500px] showRoom-container lg:h-screen z-[110]`}
+      className={`vr-showroom h-[50vh] md:h-[100vh] showRoom-container  z-[110]`}
       style={{
         aspectRatio: '16/9',
         maxWidth: '100%',
@@ -174,7 +174,7 @@ const ThreeSixty = ({ showControl = false }) => {
       }}
     >
 
-        <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
+        <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-xl md:text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
           {t('discover')?.split('360')?.[0]}
           <span className='font-[InterBold]'>{'360°'}</span>
           {t('discover')?.split('360')?.[1]}
@@ -248,12 +248,12 @@ const ThreeSixty = ({ showControl = false }) => {
             maxWidth: '100vw',
             maxHeight: '100vh',
             objectFit: 'cover',
-            minHeight: '100vh',
             minWidth: '100vw',
             userSelect: 'none',
             WebkitUserSelect: 'none',
             pointerEvents: 'none',
           }}
+          className='min-h-[50vh] md:min-h-[100vh]'
           draggable={false}
         /> :
           <PanoramaViewer

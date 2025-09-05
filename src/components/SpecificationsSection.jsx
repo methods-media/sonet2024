@@ -83,7 +83,7 @@ const SpecificationsSection = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className={`text-4xl font-bold text-[#05141F] mb-4 ${locale === 'ar' ? 'font-[GSSBold]' : 'font-[InterBold]'
+                    <h2 className={`text-2xl md:text-4xl font-bold text-[#05141F] mb-4 ${locale === 'ar' ? 'font-[GSSBold]' : 'font-[InterBold]'
                         }`}>
                         {t('specifications')}
                     </h2>
@@ -92,7 +92,7 @@ const SpecificationsSection = () => {
                 {/* Key Specifications Icons */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
                     <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-3   flex items-center justify-center">
+                        <div className="w-8 h-8 md:w-16 md:h-16 mx-auto mb-3   flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
                                 <g id="Normal / 48 / Line / Vehicle / Engine Combustion">
                                     <path id="Vector 291" d="M13.3333 58.4615V31.5385H22.9293L28.6869 20H49.798L57.4747 31.5385H76.6667V54.6154H65.1515L55.5555 70H28.6869L22.9293 58.4615H13.3333Z" stroke="#05141F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -102,7 +102,7 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
                             {t('liter')?.split('1.5')?.[0]}
                             <span className='font-[InterBold]'>1.5</span>
                             {t('liter')?.split('1.5')?.[1]}
@@ -120,7 +120,7 @@ const SpecificationsSection = () => {
                     </div>
 
                     <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                        <div className="w-8 h-8 md:w-16 md:h-16 mx-auto mb-3 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="dial">
                                 <g>
                                     <path d="M44.52,26.42l2-2a2.24,2.24,0,0,0-3.17-3.17l-2,2a15.63,15.63,0,1,0,3.17,3.17ZM44,22a1.27,1.27,0,0,1,.88-.37,1.25,1.25,0,0,1,.88,2.12L41,28.56a1.29,1.29,0,0,1-1.76,0,1.26,1.26,0,0,1,0-1.76ZM42.35,46.12A14.64,14.64,0,1,1,40.64,24L38.5,26.09a2.26,2.26,0,0,0-.65,1.59,2.24,2.24,0,0,0,2.24,2.24,2.18,2.18,0,0,0,1.58-.66l2.13-2.13A14.61,14.61,0,0,1,42.35,46.12Z"></path>
@@ -129,13 +129,13 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
 {t('DM')}</p>
                         <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('DM1')}</p>
                     </div>
 
                     <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                        <div className="w-8 h-8 md:w-16 md:h-16 mx-auto mb-3 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="airbags">
                                 <circle cx="121.069" cy="130.522" r="36.938" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="15"></circle>
                                 <path fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="15" d="   M135.549,192.955L135.549,192.955c16.584-7.446,36.004,0.717,42.288,17.775l20.008,54.309   c5.656,15.351,20.281,25.549,36.64,25.549h46.531c15.705,0,29.882,9.409,35.982,23.882l53.033,121.616   c6.787,16.102-5.036,33.915-22.51,33.915h0c-9.699,0-18.479-5.738-22.373-14.621l-38.46-85.135   c-6.224-14.199-20.259-23.371-35.762-23.371h-62.262c-16.316,0-30.911-10.144-36.598-25.436l-33.072-88.926   C113.234,217.023,120.474,199.723,135.549,192.955z"></path>
@@ -147,7 +147,7 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
                             {t('airBags')?.split('6')?.[0]}
                             <span className='font-[InterBold]'>6</span>
                             {t('airBags')?.split('6')?.[1]}
@@ -157,7 +157,7 @@ const SpecificationsSection = () => {
                     </div>
 
                     <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                        <div className="w-8 h-8 md:w-16 md:h-16 mx-auto mb-3 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="car-tracking">
                                 <path fill="#333" d="M95.076 138.528c42.631-38.269 97.678-59.344 154.999-59.344 58.765 0 114.841 22.018 157.899 61.996a12.454 12.454 0 0 0 8.503 3.34c3.354 0 6.701-1.343 9.163-3.995 4.697-5.059 4.404-12.968-.655-17.665-47.697-44.286-109.814-68.676-174.91-68.676-63.496 0-124.473 23.347-171.699 65.74-5.137 4.611-5.563 12.515-.952 17.651 4.613 5.141 12.515 5.566 17.652.953z"></path>
                                 <path fill="#333" d="M373.088 187.908a12.47 12.47 0 0 0 9.269-4.109c4.634-5.116 4.243-13.021-.874-17.655-36.059-32.657-82.727-50.643-131.408-50.643-47.063 0-92.555 16.942-128.097 47.707-5.22 4.519-5.789 12.412-1.271 17.632 4.519 5.219 12.413 5.787 17.632 1.271 30.999-26.832 70.681-41.609 111.735-41.609 42.466 0 83.174 15.688 114.626 44.172a12.456 12.456 0 0 0 8.388 3.234z"></path>
@@ -167,13 +167,13 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
 {t('audio')}</p>
                         <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('smart2')}</p>
                     </div>
 
                     <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                        <div className="w-8 h-8 md:w-16 md:h-16 mx-auto mb-3 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="wireless-charging">
                                 <path d="M41.8629 26.78891l-6.60072-.07436L36.77 14.89861a1.00217 1.00217 0 00-1.79841-.725L21.3445 32.48749a1.00751 1.00751 0 00.85227 1.5988l7.88444-.37572L27.66832 49.07344a1.00674 1.00674 0 001.84345.68094L42.70438 28.3163A1.00922 1.00922 0 0041.8629 26.78891zM30.42367 44.44922l1.82875-11.64275a1.00953 1.00953 0 00-1.03816-1.15653l-6.997.33364L34.29839 18.43576l-1.16633 9.14082a1.00908 1.00908 0 00.98239 1.12914l5.95591.06752zM19.9453 18.52872a1.00249 1.00249 0 00-1.41682.00587 19.163 19.163 0 00.00021 26.93125 1.002 1.002 0 001.42243-1.411 17.15019 17.15019 0 01.00024-24.10931A1.00177 1.00177 0 0019.9453 18.52872z"></path>
                                 <path d="M5.94934 32.00022a25.89015 25.89015 0 017.6193-18.43134 1.00205 1.00205 0 00-1.41686-1.41675c-10.86916 10.42337-10.869 29.27312.00036 39.69623A1.00192 1.00192 0 0013.5686 50.4315 25.89007 25.89007 0 015.94934 32.00022zM51.84813 12.15206a1.002 1.002 0 00-1.41676 1.41687C60.523 23.24769 60.52274 40.753 50.431 50.43154a1.00216 1.00216 0 001.41716 1.41677C62.71734 41.42516 62.71722 22.575 51.84813 12.15206z"></path>
@@ -181,18 +181,18 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
 {t('chg')}</p>
                     </div>
 
                     <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                        <div className="w-8 h-8 md:w-16 md:h-16 mx-auto mb-3 flex items-center justify-center">
                             <svg aria-hidden="true" class="e-font-icon-svg e-fas-shield-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"></path>
                             </svg>
                         </div>
                       
-                        <p className={`text-xl font-bold text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>
                             {t('warranty')?.split('5')?.[0]}
                             <span className='font-[InterBold]'>5</span>
                             {t('warranty')?.split('5')?.[1]}
@@ -227,7 +227,7 @@ const SpecificationsSection = () => {
                                     className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                         }`}
                                 >
-                                    <div className="p-6 bg-gray-50">
+                                    <div className="  p-2 md:p-6 bg-gray-50">
                                         <ul className="space-y-3">
                                             {item.content.map((feature, featureIndex) => (
                                                 <li key={featureIndex} className="flex gap-1 items-start">

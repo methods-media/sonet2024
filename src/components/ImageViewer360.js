@@ -53,23 +53,24 @@ const [on,setOn]=useState(false)
 
     return (
         
-        <div className='relative w-screen h-screen'>
-            <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
+        <div className='relative w-screen h-[60vh] md:h-screen'>
+            <p className={`z-[100] text-white absolute top-[3%] w-full text-center text-xl md:text-[32px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>
               
                 {t('discover2')?.split('360')?.[0]}
                 <span className='font-[InterBold]'>{'360°'}</span>
                 {t('discover2')?.split('360')?.[1]}
             </p>
 
-            {!on ? <div onClick={()=>setOn(true)} className=' cursor-pointer absolute left-0 top-0 min-h-screen min-w-screen bg-black/30 gap-6 flex flex-col items-center justify-center z-[100]'
+            {!on ? <div onClick={()=>setOn(true)} className=' cursor-pointer absolute left-0 top-0 min-h-[50vh] md:min-h-screen min-w-screen bg-black/30 gap-6 flex flex-col items-center justify-center z-[100]'
             >
-                <img src={'/assets/330.png'} width={120} height={120} />
-                <p className='text-white  w-full text-center text-[24px]'>
+                <img src={'/assets/330.png'} width={120} height={120} className='w-[60px] md:w-[120px] h-[60px] md:h-[120px]' />
+                <p className='text-white  w-full text-center text-base md:text-[24px]'>
 
                     {t('click')}
                 </p>
             </div>:null}
             <div ref={viewerRef}
+                className='min-h-[60vh] md:min-h-[100vh]'
                 style={{
                     width: '100%',
                     height: '100%',
@@ -81,11 +82,11 @@ const [on,setOn]=useState(false)
                     overflow: 'hidden',
                     margin: '0 auto',
                     padding: 0,
-                }} />;
+                }} />
         </div>
     )
    
-};
+}
 
 export default PanoramaViewer;
 

@@ -100,7 +100,7 @@ const ParallaxFiveSection = () => {
                 {`
               .parallax-container4 {
   position: relative;
-  height: 300vh; /* Make the container tall enough to allow scrolling */
+  min-height: 300vh; /* Make the container tall enough to allow scrolling */
   overflow: hidden;
 }
 
@@ -167,37 +167,42 @@ const ParallaxFiveSection = () => {
 
                 </div>
             
-                <div className='relative w-screen h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/c4dc0962-e3d1-4c3d-30d7-a7ce96dbe800/semi)] bg-cover bg-no-repeat'>
+                <div className='relative w-screen h-[70vh] md:h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/c4dc0962-e3d1-4c3d-30d7-a7ce96dbe800/semi)] bg-cover bg-no-repeat'>
                     <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-0 bg-gradient-to-b from-transparent  to-black '>
                         <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'} `} style={{
                             textShadow: `2px 2px 5px #000000`
 
                         }}>{t('powerOfBeast')}</p>
-                        <p className={`z-[100] text-white w-full text-center   text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}
+                        <p className={`z-[100] text-white w-full text-center   text-sm md:text-lg max-w-[90%] md:max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}
 
                         >{t('powerOfBeast1')}</p>
-                        <div className='flex items-start w-full justify-around pb-12 '>
+                        <div  className='flex items-start w-full justify-around pb-12 '>
                             <div className='flex items-center gap-2'>
                                 
-                                <LottieIcon src={'/assets/horse.json'} width={64} height={64} />
+                                <LottieIcon src={'/assets/horse.json'} width={64} height={64} className='hidden md:flex' />
+                                <LottieIcon src={'/assets/horse.json'} width={24} height={24} className='flex md:hidden' />
                                 <div className='flex flex-col'>
                                     
-                                <p className='text-base text-[#BDBDBD]'>{t('hp')}</p>
-                                <p className='text-xl font-[InterBold] text-white'>{115}</p>
+                                <p className='text-xs md:text-base text-[#BDBDBD]'>{t('hp')}</p>
+                                <p className='text-sm md:text-xl font-[InterBold] text-white'>{115}</p>
                             </div>
                             </div>
                             <div className='flex items-center gap-2'>
-                                <LottieIcon src={'/assets/piston.json'} width={64} height={64} />
+                              
+
+                                <LottieIcon src={'/assets/piston.json'} width={64} height={64} className='hidden md:flex' />
+                                <LottieIcon src={'/assets/piston.json'} width={24} height={24} className='flex md:hidden' />
                             <div className='flex flex-col'>
-                                <p className='text-base text-[#BDBDBD]'>{t('torque')}</p>
-                                <p className='text-xl font-[InterBold] text-white'>{14.7}</p>
+                                <p className='text-xs md:text-base text-[#BDBDBD]'>{t('torque')}</p>
+                                <p className='text-sm md:text-xl font-[InterBold] text-white'>{14.7}</p>
                                 </div>
                             </div>
                                 <div className='flex items-center gap-2'>
-                                    <LottieIcon src={'/assets/gears.json'} width={64} height={64} />
+                                <LottieIcon src={'/assets/gears.json'} width={64} height={64} className='hidden md:flex' />
+                                <LottieIcon src={'/assets/gears.json'} width={24} height={24} className='flex md:hidden' />
                             <div className='flex flex-col'>
-                                <p className='text-base text-[#BDBDBD]'>{t('trans')}</p>
-                                <p className='text-xl font-bold text-white'>{t('speed')}</p>
+                                <p className='text-xs md:text-base text-[#BDBDBD]'>{t('trans')}</p>
+                                <p className='text-sm md:text-xl font-bold text-white'>{t('speed')}</p>
                             </div>
                               </div>
                         </div>
@@ -209,33 +214,24 @@ const ParallaxFiveSection = () => {
                 <SpecificationsSection />
 
 
-                <div className='w-screen h-screen '>
+                <div className='w-screen  h-[50vh] md:h-screen '>
                     <div className='h-[30vh] p-10 bg-gradient-to-b from-black from-0% to-transparent to-[90%]'>
-                        <h2 className={`text-[36px] text-white ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
+                        <h2 className={`text-lg md:text-[36px] text-white ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
                             textShadow:'2px 2px 10px #000000',
                         }}>{t('att')}
 </h2>
-                        <p className={`text-lg text-white max-w-[50%] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
+                        <p className={`text-sm md:text-lg mt-3 md:mt-0 text-white max-w-[90%] md:max-w-[50%] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
                             textShadow: '2px 2px 10px #000000',
                         }}>{t('att1')}</p>
                     </div>
                     <div className='px-10'>
-                        <button className={`text-[20px] w-[190px] h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                        <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                             {t('explore')}
                         </button>
                  </div>
               </div>
 
-                <div className='relative w-screen h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi)] bg-cover bg-no-repeat'>
-                    <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[8%] '>
-                        <p className={`z-[100] text-white w-full text-center text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('driveMood')}</p>
-                        <p className={`z-[100] text-white w-full text-center text-lg max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>{t('driveMood1')}</p>
-
-                    </div>
-
-
-                </div>
-
+               
 
 
             </div>

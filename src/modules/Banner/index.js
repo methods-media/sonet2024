@@ -22,11 +22,11 @@ const Banner = () => {
     <div id='highlights'
       
       
-      className={`w-screen h-[90vh] md:h-screen   bg-[url("https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/1e1b3f25-0f74-4e66-6f5a-f58994c15a00/public")] bg-cover bg-center bg-no-repeat   relative flex items-start justify-start overflow-hidden pt-[76px]`}>
+      className={`w-screen h-[50vh] md:h-screen   bg-[url("https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/1e1b3f25-0f74-4e66-6f5a-f58994c15a00/public")] bg-cover bg-center bg-no-repeat   relative flex items-start justify-start overflow-hidden pt-[76px]`}>
      
 
       <motion.h1
-        className={`sm:text-6xl p-[60px] text-2xl w-full text-start text-white  ${locale == 'ar' ? "md:text-[52px] font-['GSSBold']" : " md:text-[56px] font-['InterBold']"}`}
+        className={` p-6 md:p-[60px] text-2xl w-full text-start text-white  ${locale == 'ar' ? "md:text-[52px] font-['GSSBold']" : " md:text-[56px] font-['InterBold']"}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
