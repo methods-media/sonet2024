@@ -5,8 +5,7 @@ import { useRouter } from 'next/router';
 
 const SpecificationsSection = () => {
     const [openIndex, setOpenIndex] = useState(0); // Start with first accordion open
-    const { t } = useTranslation('common');
-    const { locale } = useRouter();
+    const { t, i18n } = useTranslation('common');
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? -1 : index);
@@ -14,7 +13,7 @@ const SpecificationsSection = () => {
 
     const accordionData = [
         {
-            title: locale == 'ar' ? 'الراحة' :'Convenience',
+            title: i18n?.language == 'ar' ? 'الراحة' :'Convenience',
             content: [
                 "faa1",
                "faa2",
@@ -83,7 +82,7 @@ const SpecificationsSection = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className={`text-2xl md:text-4xl font-bold text-[#05141F] mb-4 ${locale === 'ar' ? 'font-[GSSBold]' : 'font-[InterBold]'
+                    <h2 className={`text-2xl md:text-4xl font-bold text-[#05141F] mb-4 ${i18n?.language === 'ar' ? 'font-[GSSBold]' : 'font-[InterBold]'
                         }`}>
                         {t('specifications')}
                     </h2>
@@ -102,14 +101,14 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
                             {t('liter')?.split('1.5')?.[0]}
                             <span className='font-[InterBold]'>1.5</span>
                             {t('liter')?.split('1.5')?.[1]}
                         
                         
                         </p>
-                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>
+                        <p className={`text-sm text-[#6D6E71] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>
                             {t('rpm')?.split('115')?.[0]}
                             <span className='font-[InterRegular]'>115</span>
                             {t('rpm')?.split('115')?.[1]?.split('6300')?.[0]}
@@ -129,9 +128,9 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
 {t('DM')}</p>
-                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('DM1')}</p>
+                        <p className={`text-sm text-[#6D6E71] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('DM1')}</p>
                     </div>
 
                     <div className="text-center">
@@ -147,13 +146,13 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
                             {t('airBags')?.split('6')?.[0]}
                             <span className='font-[InterBold]'>6</span>
                             {t('airBags')?.split('6')?.[1]}
                         
                         </p>
-                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('airBag1')}</p>
+                        <p className={`text-sm text-[#6D6E71] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('airBag1')}</p>
                     </div>
 
                     <div className="text-center">
@@ -167,9 +166,9 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
 {t('audio')}</p>
-                        <p className={`text-sm text-[#6D6E71] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('smart2')}</p>
+                        <p className={`text-sm text-[#6D6E71] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'}`}>{t('smart2')}</p>
                     </div>
 
                     <div className="text-center">
@@ -181,7 +180,7 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                        
-                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`}>
 {t('chg')}</p>
                     </div>
 
@@ -192,7 +191,7 @@ const SpecificationsSection = () => {
                             </svg>
                         </div>
                       
-                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${locale=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>
+                        <p className={`text-base md:text-xl font-bold text-[#05141F] ${i18n?.language=='ar'?'font-[GSSMedium]':'font-[InterBold]'}`}>
                             {t('warranty')?.split('5')?.[0]}
                             <span className='font-[InterBold]'>5</span>
                             {t('warranty')?.split('5')?.[1]}
@@ -213,11 +212,11 @@ const SpecificationsSection = () => {
                                         : ' text-[#FFFFFF96]'
                                         }`}
                                 >
-                                    <span className={`text-lg font-semibold ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
+                                    <span className={`text-lg font-semibold ${i18n?.language === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
                                         }`}>
                                         {item.title}
                                     </span>
-                                    <span className={`transform transition-transform text-2xl  ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
+                                    <span className={`transform transition-transform text-2xl  ${i18n?.language === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
                                         } ${openIndex === index ? 'rotate-180 text-white' : 'rotate-0 text-[#FFFFFF96]'
                                         }`}>
                                         {openIndex === index ? '−' : '+'}
@@ -232,7 +231,7 @@ const SpecificationsSection = () => {
                                             {item.content.map((feature, featureIndex) => (
                                                 <li key={featureIndex} className="flex gap-1 items-start">
                                                     <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                                    <span className={`text-gray-700 ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'
+                                                    <span className={`text-gray-700 ${i18n?.language === 'ar' ? 'font-[GSSMedium]' : 'font-[InterRegular]'
                                                         }`}>
                                                         {t(feature)?.includes('LED') ?
                                                             <>
@@ -325,11 +324,11 @@ const SpecificationsSection = () => {
                         <button
                             className={`w-full bg-[#05141F] flex justify-between  text-xl font-bold items-center p-6 h-[50px] text-left transition-colors text-white`}
                         >
-                            <span className={`text-lg font-semibold ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
+                            <span className={`text-lg font-semibold ${i18n?.language === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
                                 }`}>
-                                {locale == 'ar' ? 'الأبعاد (مم)':'Dimensions'}
+                                {i18n?.language == 'ar' ? 'الأبعاد (مم)':'Dimensions'}
                             </span>
-                            <span className={`transform transition-transform text-2xl  ${locale === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
+                            <span className={`transform transition-transform text-2xl  ${i18n?.language === 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'
                                 } rotate-180 text-white`}>
                                 {'−'}
                             </span>

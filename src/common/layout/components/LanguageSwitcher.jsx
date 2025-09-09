@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 const LanguageSwitcher = ({ toggleMenu }) => {
   const router = useRouter();
+  const { i18n } = useTranslation('common')
 
   const handleLanguageChange = () => {
     if (toggleMenu) {
@@ -24,38 +25,38 @@ const LanguageSwitcher = ({ toggleMenu }) => {
       }}
     >
       <Link
-        href={`/${router.locale == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`}
+        href={`/${i18n?.language == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`}
         onClick={handleLanguageChange}
         locale="en"
         style={{
           color:
-            router.locale === 'en' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
+            i18n?.language === 'en' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
           textDecoration: 'none',
           fontSize: '14px',
           fontWeight: '500',
           padding: '4px 8px',
           borderRadius: '4px',
           background:
-            router.locale === 'en' ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
+            i18n?.language === 'en' ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
           transition: 'all 0.2s ease',
         }}
       >
         EN
       </Link>
       <Link
-        href={`/${router.locale == 'en' ? 'ar' : ''}${router.asPath.replace('/','')}`}
+        href={`/${i18n?.language == 'en' ? 'ar' : ''}${router.asPath.replace('/','')}`}
         onClick={handleLanguageChange}
         locale="ar"
         style={{
           color:
-            router.locale === 'ar' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
+            i18n?.language === 'ar' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
           textDecoration: 'none',
           fontSize: '14px',
           fontWeight: '500',
           padding: '4px 8px',
           borderRadius: '4px',
           background:
-            router.locale === 'ar' ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
+            i18n?.language === 'ar' ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
           transition: 'all 0.2s ease',
         }}
       >

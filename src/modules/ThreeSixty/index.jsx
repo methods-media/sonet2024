@@ -16,7 +16,6 @@ const ThreeSixty = ({ showControl = false }) => {
   const autoRotateRef = useRef(null);
   const framePositionRef = useRef(0);
   const { t, i18n } = useTranslation('common');
-  const { locale } = useRouter();
   const [isOn, setIsOn] = useState(false)
 
 
@@ -201,7 +200,7 @@ const ThreeSixty = ({ showControl = false }) => {
 
 
             </div>
-          : <p className={`text-white text-lg md:text-xl btn-showRoom mt-2 ${locale == 'ar' ? 'font-["GSSBold"]' : 'font-["InterBold"]'}`}>        {t('colors.onyx_black')}</p>
+          : <p className={`text-white text-lg md:text-xl btn-showRoom mt-2 ${i18n?.language == 'ar' ? 'font-["GSSBold"]' : 'font-["InterBold"]'}`}>        {t('colors.onyx_black')}</p>
         }
         {showControl ? <VRControls
 

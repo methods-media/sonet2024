@@ -14,8 +14,7 @@ const ParallexOLD = ({
 }) => {
     const sectionRef = useRef(null);
     const textRef = useRef(null);
-    const { t } = useTranslation('common');
-    const { locale } = useRouter();
+    const { t ,i18n} = useTranslation('common');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
 
@@ -149,7 +148,7 @@ const ParallexOLD = ({
                     }}
                 >
                     <h2
-                        className={`text-[35px] md:text-[62px] leading-[53px] md:leading-[72px] w-full ${locale == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"}`}
+                        className={`text-[35px] md:text-[62px] leading-[53px] md:leading-[72px] w-full ${i18n?.language == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"}`}
 
                         style={{
                             transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',

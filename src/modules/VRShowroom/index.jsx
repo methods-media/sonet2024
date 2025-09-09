@@ -2,9 +2,8 @@
 import { useEffect, useState, useRef } from 'react';
 import VRControls from './VRControls';
 import { useTranslation } from 'next-i18next';
-import PanoramaViewer from '@src/components/ImageViewer360';
 import { useRouter } from 'next/router';
-import { CDN_BEIGE_FENDER, FRAME_COUNT } from '@src/constants/imageSequence';
+import { FRAME_COUNT } from '@src/constants/imageSequence';
 const VRShowroom = ({ showControl=false }) => {
   const containerRef = useRef(null);
   const [view, setView] = useState('exterior')
@@ -21,7 +20,6 @@ const VRShowroom = ({ showControl=false }) => {
   const framePositionRef = useRef(0);
   const [colorTextKey, setColorTextKey] = useState(0);
   const { t ,i18n} = useTranslation('common');
-  const { locale } = useRouter();
 
   const onChange = () => {
     setIsOn((prev) => !prev)
@@ -266,7 +264,7 @@ const VRShowroom = ({ showControl=false }) => {
               </div>
             </div>}
 
-          </div> : <p className={`text-white text-lg md:text-xl btn-showRoom mt-2 ${locale == 'ar' ? 'font-["GSSBold"]' : 'font-["InterBold"]'}`}>        {t('colors.onyx_black')}</p>
+          </div> : <p className={`text-white text-lg md:text-xl btn-showRoom mt-2 ${i18n?.language == 'ar' ? 'font-["GSSBold"]' : 'font-["InterBold"]'}`}>        {t('colors.onyx_black')}</p>
         }
         {showControl ? <VRControls
 

@@ -8,7 +8,6 @@ export const Trims = () => {
     const [activeTrim, setActiveTrim] = useState(0)
     const [activeSpecs, setActiveSpecs] = useState(0)
     const { t } = useTranslation('common');
-    const { locale } = useRouter()
 
 const carTypes=[
     {

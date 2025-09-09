@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 const BannerSecond = () => {
-  const { t} = useTranslation('common');
-  const { locale } = useRouter();
+  const { t,i18n} = useTranslation('common');
   
 
 
@@ -16,7 +14,7 @@ const BannerSecond = () => {
 
       <div className='flex flex-col  gap-2 md:gap-5 pt-[50px] pe-6 md:pe-0 ps-6 md:ps-[60px] min-h-[30vh] bg-[linear-gradient(180deg,#000000_0%,#00000000_90%)]'>
         <motion.h1
-          className={`text-lg md:text-[42px] w-full text-start text-white  ${locale == 'ar' ? " font-['GSSBold']" : "font-['InterBold']"}`}
+          className={`text-lg md:text-[42px] w-full text-start text-white  ${i18n?.language == 'ar' ? " font-['GSSBold']" : "font-['InterBold']"}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -24,7 +22,7 @@ const BannerSecond = () => {
           {t('insect')}
         </motion.h1>
         <motion.p
-          className={`text-sm md:text-lg w-full text-start text-white  ${locale == 'ar' ? "font-[GSSMedium] md:font-['GSSBold']" : "font-[InterRegular] md:font-['InterBold']"}`}
+          className={`text-sm md:text-lg w-full text-start text-white  ${i18n?.language == 'ar' ? "font-[GSSMedium] md:font-['GSSBold']" : "font-[InterRegular] md:font-['InterBold']"}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

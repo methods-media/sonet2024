@@ -21,7 +21,6 @@ const ParallaxFiveSection = () => {
     const textRef = useRef(null);
     const sectionRef = useRef(null);
     const { t, i18n } = useTranslation('common')
-    const { locale } = useRouter()
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -216,17 +215,17 @@ const ParallaxFiveSection = () => {
 
                 <div className='w-screen  h-[50vh] md:h-screen '>
                     <div className='h-[30vh] p-10 bg-gradient-to-b from-black from-0% to-transparent to-[90%]'>
-                        <h2 className={`text-lg md:text-[36px] text-white ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
+                        <h2 className={`text-lg md:text-[36px] text-white ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
                             textShadow:'2px 2px 10px #000000',
                         }}>{t('att')}
 </h2>
-                        <p className={`text-sm md:text-lg mt-3 md:mt-0 text-white max-w-[90%] md:max-w-[50%] ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
+                        <p className={`text-sm md:text-lg mt-3 md:mt-0 text-white max-w-[90%] md:max-w-[50%] ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}`} style={{
                             textShadow: '2px 2px 10px #000000',
                         }}>{t('att1')}</p>
                     </div>
                     <div className='px-10'>
                         <a href='https://www.kia-uae.com/promotion/' target='_blank' className={"cursor-pointer"}>
-                            <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                            <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                             {t('explore')}
                         </button>
 

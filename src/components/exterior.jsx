@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 export const Exterior = () => {
     const sectionRef = useRef(null);
     const { t, i18n } = useTranslation('common');
-    const {locale}=useRouter()
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -20,7 +19,7 @@ export const Exterior = () => {
     return (
         <div ref={sectionRef} className="w-screen bg-[#06141F] flex flex-col justify-center h-[70vh]">
             <motion.p
-                className={`text-3xl md:text-[52px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
+                className={`text-3xl md:text-[52px] text-white text-center ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                 style={{ scale, y, opacity }}
             >
                 {i18n?.language == 'ar' ? `التصميم الخارجي` : `Exterior`}

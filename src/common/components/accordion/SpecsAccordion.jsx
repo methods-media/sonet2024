@@ -5,12 +5,10 @@ import { useRouter } from 'next/router';
 
 export const SpecsAccordion = ({activeTrim,activeSpecs}) => {
   const [openIndex, setOpenIndex] = useState(0);
-  const { t } = useTranslation('common');
-  const { locale } = useRouter();
+  const { t,i18n } = useTranslation('common');
   const toggleAccordion = index => {
     setOpenIndex(index);
   };
-
   const accordionData = [
     {
       title: t('spec_ext'),
@@ -148,10 +146,10 @@ export const SpecsAccordion = ({activeTrim,activeSpecs}) => {
             className={`w-full flex justify-between items-center h-[60px] py-2 px-4 text-[sm] md:text-[17px]  ${
               openIndex === index
                 ? `rounded-t-[4px] text-white bg-[#05141F] ${
-                    locale == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"
+                    i18n?.language == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"
                   } `
                 : `rounded-lg text-[#A3A8AD] bg-[#05141F] ${
-                    locale == 'ar'
+                    i18n?.language == 'ar'
                       ? "font-['GSSMedium'] hover:font-['GSSBold']"
                       : "font-['InterRegular']  hover:font-['InterBold']"
                   } hover:bg-[#05141F]`
@@ -164,7 +162,7 @@ export const SpecsAccordion = ({activeTrim,activeSpecs}) => {
           </button>
           <div
             className={`overflow-hidden ${
-              locale == 'ar' ? "font-['GSSMedium']" : "font-['InterRegular']"
+              i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-['InterRegular']"
             }  transition-all duration-300 ${
               openIndex === index ? 'max-h-[430px] overflow-y-auto p-4' : 'max-h-0 p-0'
             }`}

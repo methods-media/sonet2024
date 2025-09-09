@@ -7,7 +7,6 @@ import { FloatingText2 } from "./floatingText2";
 export const Interior = () => {
     const sectionRef = useRef(null);
     const { t, i18n } = useTranslation('common');
-    const {locale}=useRouter()
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -20,7 +19,7 @@ export const Interior = () => {
     return (
         <div ref={sectionRef} id='interior' className="w-screen bg-[#06141F] flex flex-col  items-center justify-center h-[100vh]">
             <motion.p
-                className={`text-3xl md:text-[52px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium'] -ms-[55px]" : "font-[InterBold]"} text-white uppercase font-[900] w-fit`}
+                className={`text-3xl md:text-[52px] text-white text-center ${i18n?.language == 'ar' ? "font-['GSSMedium'] -ms-[55px]" : "font-[InterBold]"} text-white uppercase font-[900] w-fit`}
                 style={{ scale, y, opacity }}
             >
                 {"   "}{i18n?.language == 'ar' ? `التصميم الداخلي` : `Interior`}

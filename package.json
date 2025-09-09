@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "preview": "npx serve -s out"
   },
   "dependencies": {
     "@photo-sphere-viewer/core": "^5.12.1",

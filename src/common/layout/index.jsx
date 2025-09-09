@@ -1,12 +1,11 @@
-"use client"
+"use client";
 import Footer from './components/footer';
 import Header from './components/Header';
 import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, lang }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { locale, pathname ,query} = useRouter()
   const { t ,i18n} = useTranslation('common');
@@ -61,7 +60,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <Header />
+      <Header lang={lang} />
       <div className="z-[1000]">{children}</div>
    
       <Footer />

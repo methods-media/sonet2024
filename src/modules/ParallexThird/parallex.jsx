@@ -2,9 +2,6 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { ParallaxProvider } from "react-scroll-parallax";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/router';
-import ThreeSixty from '../ThreeSixty';
-import { SwiperSection } from '../SwiperSection';
 import PanoramaViewer from '@src/components/ImageViewer360';
 
 const ParallaxThirdSection = () => {
@@ -14,7 +11,6 @@ const ParallaxThirdSection = () => {
     const textRef = useRef(null);
     const sectionRef = useRef(null);
     const { t, i18n } = useTranslation('common')
-    const { locale } = useRouter()
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -141,13 +137,13 @@ const ParallaxThirdSection = () => {
 
                 <div className='bg-black/50 w-screen h-[50vh] md:h-screen flex flex-col justify-center gap-[70px] md:gap-[200px] items-center'>
                     <motion.p
-                        className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
+                        className={`text-3xl md:text-[100px] text-white text-center ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
                         {t('safety2')}
                     </motion.p>
                     <a href='https://www.kia-uae.com/promotion/' target='_blank' className={"cursor-pointer"}>
-                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
                     </a>

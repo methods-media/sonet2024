@@ -10,8 +10,7 @@ const ParallaxSectionTV = ({
     isDangeroulyInnerHtml = false,
     id
 }) => {
-    const { t } = useTranslation('common');
-    const { locale } = useRouter();
+    const { t,i18n } = useTranslation('common');
 
     return (
         <div
@@ -28,7 +27,7 @@ const ParallaxSectionTV = ({
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                 <div className="text-white text-center px-4">
                     <h2
-                        className={`text-[35px] md:text-[62px] leading-[53px] md:leading-[72px] mb-[120px] md:mb-[230px] w-full ${locale == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"
+                        className={`text-[35px] md:text-[62px] leading-[53px] md:leading-[72px] mb-[120px] md:mb-[230px] w-full ${i18n?.language == 'ar' ? "font-['GSSBold']" : "font-['InterBold']"
                             }`}
                         dangerouslySetInnerHTML={{ __html: text }}
                     />

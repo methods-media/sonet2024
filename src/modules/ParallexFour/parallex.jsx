@@ -19,7 +19,6 @@ const ParallaxFourSection = () => {
     const textRef = useRef(null);
     const sectionRef = useRef(null);
     const { t, i18n } = useTranslation('common')
-    const { locale } = useRouter()
     const [cardsToShow,setCardsToShow]=useState(3)
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -256,7 +255,7 @@ const ParallaxFourSection = () => {
                                     />
                                 </div>
                                 <div className="w-full h-auto  flex flex-col items-center justify-start  ">
-                                        <h2 className={`text-base md:text-2xl  text-center  font-bold text-white mb-6 ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                                        <h2 className={`text-base md:text-2xl  text-center  font-bold text-white mb-6 ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                                         {t(item?.title)?.includes('FCA') ?
                                             <>
                                                 {t(item?.title)?.split('FCA')?.[0]}
@@ -283,7 +282,7 @@ const ParallaxFourSection = () => {
                                                         </>
                                                         : t(item?.title)}
                                     </h2>
-                                        <p className={`text-sm md:text-lg text-center text-[#c2c2c2] leading-relaxed max-w-[100%] ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
+                                        <p className={`text-sm md:text-lg text-center text-[#c2c2c2] leading-relaxed max-w-[100%] ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterRegular]"}`}>
                                         {t(item?.desc)}                                    </p>
                                 </div>
                             </div>
@@ -315,13 +314,13 @@ const ParallaxFourSection = () => {
 
                 <div className='bg-black/50 w-screen h-[40vh] md:h-screen flex flex-col justify-center gap-[70px] md:gap-[200px] items-center'>
                     <motion.p
-                        className={`text-3xl md:text-[100px] text-white text-center ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
+                        className={`text-3xl md:text-[100px] text-white text-center ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"} text-white uppercase font-[900]`}
                         style={{ scale }}
                     >
                         {t('performance')}
                     </motion.p>
                     <a href='https://www.kia-uae.com/promotion/' target='_blank' className={"cursor-pointer"}>
-                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${i18n?.language == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
                     </a>

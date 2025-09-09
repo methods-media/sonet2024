@@ -18,7 +18,7 @@ export default function Home() {
   const isArabic = i18n?.language == 'ar'; // Replace with your actual language detection logic
   const [mounted, setMounted] = useState(false);
 
-  
+ 
   const router = useRouter();
   const { locale, query } = useRouter();
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Home() {
 
 
   return (
-    <main className="relative" lang='en'>
+    <main className="relative" dir='rtl' lang='ar'>
       <ScrollProgress />
 
       <Head>
@@ -55,7 +55,7 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps({ locale='en' }) {
+export async function getStaticProps({ locale ='ar'}) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),

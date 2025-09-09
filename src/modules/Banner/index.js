@@ -26,7 +26,7 @@ const Banner = () => {
      
 
       <motion.h1
-        className={` p-6 md:p-[60px] text-2xl w-full text-start text-white  ${locale == 'ar' ? "md:text-[52px] font-['GSSBold']" : " md:text-[56px] font-['InterBold']"}`}
+        className={` p-6 md:p-[60px] text-2xl w-full text-start text-white  ${i18n?.language == 'ar' ? "md:text-[52px] font-['GSSBold']" : " md:text-[56px] font-['InterBold']"}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

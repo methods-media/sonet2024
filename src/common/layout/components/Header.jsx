@@ -1,16 +1,14 @@
-'use client';
+'use client';;
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
-import SideMenu from './SideMenu';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 
-export default function Header() {
+export default function Header (lang) {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { t } = useTranslation();
+  const { t ,i18n} = useTranslation();
   const router = useRouter();
-  const locale = router.locale;
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -72,16 +70,16 @@ export default function Header() {
               alt="Logo"
               className="h-[30px] w-[100px]"
             />
-            <div className='flex gap-2 items-center ' dir={locale == 'ar' ? 'rtl' : 'ltr'}>
+            <div className='flex gap-2 items-center ' dir={i18n?.language == 'ar' ? 'rtl' : 'ltr'}>
               {sections?.map((item, index) => (
                 <div key={index} className='flex gap-1 items-center'>
-                  <div className={`${locale=='ar'?'rotate-180':''}`}>
+                  <div className={`${i18n?.language=='ar'?'rotate-180':''}`}>
                     <SVG />
                   </div>
                   <a
                     href={item?.title}
                     onClick={(e) => handleSmoothScroll(e, item?.title)}
-                    className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}
+                    className={`!text-white text-[17px] font-semibold ${i18n?.language == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}
                   >
                     {t(item?.text)}
                   </a>
@@ -89,7 +87,13 @@ export default function Header() {
               ))}
 
             </div>
-            <a href={`/${locale == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`} className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["GSSMedium"]' : 'font-["InterBold"]'} `}> {locale == 'en' ? "العربية" : "English"}</a>
+            <button onClick={() => {
+              if (i18n?.language == 'en')
+                router.replace('/ar')
+              else
+                router.replace('/en')
+            }}
+              className={`!text-white text-[17px] cursor-pointer font-semibold ${i18n?.language == 'en' ? 'font-["GSSMedium"]' : 'font-["InterBold"]'} `}> {i18n?.language == 'en' ? "العربية" : "English"}</button>
           </div>
         
           <button onClick={toggleMenu} className="p-2 !cursor-pointer md:hidden">

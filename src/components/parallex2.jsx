@@ -12,7 +12,6 @@ const ParallaxSectionSecond = () => {
     const textRef = useRef(null);
     const sectionRef = useRef(null);
     const { i18n } = useTranslation()
-    const { locale } = useRouter()      
 
     const { scrollYProgress } = useScroll({
         target: textRef,
@@ -114,7 +113,7 @@ const ParallaxSectionSecond = () => {
                     ref={textRef}>
                     <video src='/assets/videos/safety.webm' playsInline muted autoPlay loop  className='w-screen h-screen object-cover'/>
                     <div className='absolute w-full bottom-0 start-0 p-10 bg-gradient-to-t h-[50vh] from-white to-transparent flex flex-col justify-end items-center'>
-                        <p className={`text-[42px] text-black ${locale == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}  text-center`}> {i18n?.language == 'ar' ?
+                        <p className={`text-[42px] text-black ${i18n?.language == 'ar' ? 'font-[GSSMedium]' : 'font-[InterBold]'}  text-center`}> {i18n?.language == 'ar' ?
                             <>
                                 {`أنظمة مساعدة السائق `}
                                 <span className='font-[InterBold]'>(ADAS)</span>
