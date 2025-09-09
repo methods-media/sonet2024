@@ -146,12 +146,14 @@ const ParallaxThirdSection = () => {
                     >
                         {t('safety2')}
                     </motion.p>
-                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <a href='https://www.kia-uae.com/promotion/' target='_blank' className={"cursor-pointer"}>
+                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
+                    </a>
                 </div>
 
-                <div className='relative h-[70vh] w-screen md:h-screen'>
+                <div id='safety' className='relative h-[70vh] w-screen md:h-screen'>
                     <p className={`z-[100] text-white absolute  md:top-[3%] w-full text-center text-[24px] [text-shadow:2px_2px_5px_rgba(0,0,0,0.45)] ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('ADSF')}</p>
                     <div className='w-screen flex flex-col gap-2 md:gap-6 bg-gradient-to-b from-transparent  to-black  items-center absolute left-0 bottom-0  pb-[4%] md:pb-[2%]'>
                         <p className={`z-[100] text-white w-full text-center text-lg md:text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>

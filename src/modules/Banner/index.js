@@ -19,7 +19,7 @@ const Banner = () => {
   };
 
   return (
-    <div id='highlights'
+    <div id='welcome'
       
       
       className={`w-screen h-[50vh] md:h-screen   bg-[url("https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/1e1b3f25-0f74-4e66-6f5a-f58994c15a00/public")] bg-cover bg-center bg-no-repeat   relative flex items-start justify-start overflow-hidden pt-[76px]`}>

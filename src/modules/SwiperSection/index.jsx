@@ -121,7 +121,7 @@ export const SwiperSection = ({ id }) => {
 
 
     return (
-        <div className={`h-[83vh] w-screen flex items-center bg-amber-50 overflow-hidden border-x-[5px] border-y-[2.5px] md:border-y-[10px] border-white ${isMobile ? 'flex-col' : 'flex-row'}`}>
+        <div id={id == 1 ?'interior':''} className={`h-[83vh] w-screen flex items-center bg-amber-50 overflow-hidden border-x-[5px] border-y-[2.5px] md:border-y-[10px] border-white ${isMobile ? 'flex-col' : 'flex-row'}`}>
             {data.map((item) => (
                 <div
                     key={item.id}

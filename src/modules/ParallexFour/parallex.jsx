@@ -320,13 +320,15 @@ const ParallaxFourSection = () => {
                     >
                         {t('performance')}
                     </motion.p>
-                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <a href='https://www.kia-uae.com/promotion/' target='_blank' className={"cursor-pointer"}>
+                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
+                    </a>
                 </div>
 
-                <div className='relative w-screen h-[70vh] md:h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi)] bg-cover bg-no-repeat'>
-                    <div className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[8%] '>
+                <div id='performanceo' className='relative w-screen h-[70vh] md:h-screen bg-[url(https://imagedelivery.net/2Dh6erMZ0IA4Y2r-mRikDg/ca2d0f46-e8e9-4b5b-7573-2d5a0e2c3300/semi)] bg-cover bg-no-repeat'>
+                    <div id='performanceo' className='w-screen flex flex-col gap-6 items-center absolute left-0 bottom-[8%] '>
                         <p className={`z-[100] text-white w-full text-center text-lg md:text-[24px]  ${i18n?.language == 'en' ? 'font-[InterBold]' : 'font-[GSSMedium]'}`}>{t('driveMood')}</p>
                         <p className={`z-[100] text-white w-full text-center text-sm md:text-lg max-w-[90%] md:max-w-[70%]  ${i18n?.language == 'en' ? 'font-[InterRegular]' : 'font-[GSSMedium]'}`}>
                             {t('driveMood1')?.split('2024')?.[0]}

@@ -18,6 +18,17 @@ export default function Header() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.querySelector(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   // Don't render content until client-side hydration is complete
   if (!mounted) {
     return null;
@@ -37,11 +48,11 @@ export default function Header() {
       text: "interior",
     },
     {
-      title: "#safty",
+      title: "#safety",
       text: "safety",
     },
     {
-      title: "#performance",
+      title: "#performanceo",
       text: "performance",
     },
     {
@@ -67,7 +78,13 @@ export default function Header() {
                   <div className={`${locale=='ar'?'rotate-180':''}`}>
                     <SVG />
                   </div>
-                  <p className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}>{t(item?.text)}</p>
+                  <a
+                    href={item?.title}
+                    onClick={(e) => handleSmoothScroll(e, item?.title)}
+                    className={`!text-white text-[17px] font-semibold ${locale == 'en' ? 'font-["InterBold"]' : 'font-["GSSMedium"]'} `}
+                  >
+                    {t(item?.text)}
+                  </a>
                 </div>
               ))}
 

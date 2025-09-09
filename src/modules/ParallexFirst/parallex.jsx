@@ -138,12 +138,14 @@ const ParallaxSection = () => {
                     >
                         {t('ext')}
                     </motion.p>
-                    <button className={`text-base md:text-[20px] w-[165px] md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
+                    <a href='https://www.kia-uae.com/promotion/' target='_blank' className={"cursor-pointer"}>
+                        <button className={`text-base md:text-[20px] w-[165px] cursor-pointer  md:w-[190px] h-[50px] md:h-[67px] bg-white hover:bg-[#05141f] text-[#05141f] hover:text-white ${locale == 'ar' ? "font-['GSSMedium']" : "font-[InterBold]"}`}>
                         {t('explore')}
                     </button>
+                    </a>
                 </div>
 
-                <div className='w-screen h-[55vh] md:h-screen'>
+                <div id='exterior' className='w-screen h-[55vh] md:h-screen'>
                     <VRShowroom />
                 </div>
             </div>
