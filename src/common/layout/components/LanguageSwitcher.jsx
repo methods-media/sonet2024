@@ -1,14 +1,22 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher = ({ toggleMenu }) => {
   const router = useRouter();
   const { i18n } = useTranslation('common')
 
   const handleLanguageChange = () => {
-    if (toggleMenu) {
-      toggleMenu(false);
-    }
+    if (i18n?.language == 'en')
+      router.replace('/ar').then(() => {
+        toggleMenu(false);
+
+      })
+    else
+      router.replace('/en').then(() => {
+        toggleMenu(false);
+})
+ 
   };
 
   return (
@@ -24,11 +32,13 @@ const LanguageSwitcher = ({ toggleMenu }) => {
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
       }}
     >
-      <Link
-        href={`/${i18n?.language == 'en' ? 'ar' : ''}${router.asPath.replace('/', '')}`}
+      <button
+        
         onClick={handleLanguageChange}
         locale="en"
         style={{
+          cursor: 'pointer',
+
           color:
             i18n?.language === 'en' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
           textDecoration: 'none',
@@ -42,12 +52,12 @@ const LanguageSwitcher = ({ toggleMenu }) => {
         }}
       >
         EN
-      </Link>
-      <Link
-        href={`/${i18n?.language == 'en' ? 'ar' : ''}${router.asPath.replace('/','')}`}
+      </button>
+      <button
         onClick={handleLanguageChange}
         locale="ar"
         style={{
+          cursor:'pointer',
           color:
             i18n?.language === 'ar' ? '#ffffff' : 'rgba(255, 255, 255, 0.7)',
           textDecoration: 'none',
@@ -61,7 +71,7 @@ const LanguageSwitcher = ({ toggleMenu }) => {
         }}
       >
         AR
-      </Link>
+      </button>
     </div>
   );
 };

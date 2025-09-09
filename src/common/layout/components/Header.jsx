@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import SideMenu from './SideMenu';
 
 export default function Header (lang) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +18,10 @@ export default function Header (lang) {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => { 
+    console.log("router", router.asPath)
+    setIsOpen(false)
+  }, [router])
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
     const element = document.querySelector(targetId);
@@ -113,7 +118,7 @@ export default function Header (lang) {
      
 
       {/* Always render SideMenu but control visibility with isOpen prop */}
-      {/* <SideMenu toggleMenu={toggleMenu} isOpen={isOpen} /> */}
+      {isOpen ? <SideMenu sections={sections} toggleMenu={toggleMenu} isOpen={isOpen} />:null}
     </>
   );
 }
